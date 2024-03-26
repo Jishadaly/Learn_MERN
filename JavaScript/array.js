@@ -143,3 +143,21 @@ const flatMap  = () => {
   return newArr
 }
 
+
+const arrayentries = () => {
+  const fruits = ["Banana", "Orange", "Apple", "Mango"];
+  const f = fruits.entries()
+
+   for(let x of f){
+    console.log(x);
+   }
+}
+
+// console.log(arrayentries());
+
+
+const BooleanCheck = (num1 , num2) =>{
+    return num1 === num2
+}
+
+console.log(BooleanCheck(1,1));
