@@ -1,32 +1,29 @@
 class queue {
   constructor(){
-    this.item = []
+    this.items = []
   }
 
-  enqueue(element){
-    this.item.push(element)
+  enqueue(){
+    this.items.push()
   }
 
   dequeue(){
-    this.item.shift()
+    this.items.shift()
   }
-
-  isEmpty(){
-    return this.item.length === 0
-  }
-
-  size(){
-    return this.item.length
-  }
-
   peak(){
     if (!this.isEmpty()) {
-       return this.item[0]
+       return this.items[0]
     }
     return null
   }
+  isEmpty(){
+    return this.items.length === 0
+  }
 
   print(){
-    console.log(this.item.toLocaleString());
+    console.log(this.items.toLocaleString());
   }
+  
+
 }
+

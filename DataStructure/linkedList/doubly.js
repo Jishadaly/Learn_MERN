@@ -63,7 +63,51 @@ class DoblyLinkedList {
     return value;
   }
 
-  
+  removeFromEnd(){
+    if (this.isEmpty()) {
+      return console.log("list is empty ");
+    }
+
+    const value = this.tail.value
+    this.tail = this.tail.prev
+    
+    if (this.tail !== null) {
+      this.tail.next = null
+    }else{
+      this.head = null
+    }
+    this.size --
+    return value
+  }
+
+  findMid(){
+      if (this.isEmpty()) {
+        return null
+      }else{
+        let slow= this.head
+        let fast = this.head
+
+        while(fast !== null && fast.next !== null){
+          slow = slow.next
+          fast = fast.next.next
+        }
+        return slow.value
+      }
+  }
+
+  print(){
+    if (this.isEmpty()) {
+      return console.log("list is empty");
+    }else{
+      let curr = this.head
+      let list = ""
+      while(curr){
+        console.log(curr.value);
+        list += `${curr.value}`
+        curr = curr.next
+      }
+    }
+  }
   
 
 }
@@ -72,5 +116,8 @@ const list  = new DoblyLinkedList()
 list.prepend(10)
 list.append(60)
 list.prepend(40)
+list.print()
+console.log("middle value : ",list.findMid());
 
-console.log(list);
+
+
