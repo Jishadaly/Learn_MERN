@@ -10,7 +10,11 @@ function linearSearch (arr , value){
   }
   return -1
 }
-
-
 const arr = [ 10,36,2,4,2,90 ]
-console.log();
+
+
+
+
+
+
+

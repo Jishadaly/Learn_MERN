@@ -4,10 +4,10 @@ function binarySearch (arr , value){
     let rightIndex = arr.length -1 ;
 
     while(leftIndex <= rightIndex){
-       let mid = Math.floor((leftIndex + rightIndex)/2)
+       let mid = Math.floor(( leftIndex + rightIndex )/2)
        
        if (value === arr[mid]) {
-          return mid +1
+          return i +1
        }
 
        if (value < arr[mid]) {
