@@ -21,7 +21,7 @@ function merge(leftArr , rightArr){
         sortedArr.push(rightArr.shift())
       }
     }
-
+    
     return [...sortedArr , ...leftArr , ...rightArr]
 }
 
