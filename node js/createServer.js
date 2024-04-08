@@ -48,7 +48,7 @@ const authMid = (req,res,next) =>{
   if (1+1 ===1) {
     next()
   }else{
-    res.status(401).send("unautherized")
+    res.status(401).send("unautherized")  
   }
 }
 app.get('/' , (req,res)=>{

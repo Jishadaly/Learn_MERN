@@ -1,6 +1,6 @@
 const person1 = {
-    fullName : function() {
-      return this.firstName + " " + this.lastName
+    fullName : function(palce) {
+      return this.firstName + " " + this.lastName + palce
     }
 }
 
@@ -10,5 +10,5 @@ const person2 = {
 
 }
 
-const a = person1.fullName.call(person2);
+const a = person1.fullName.call(person2,"hello");
 console.log(a);
