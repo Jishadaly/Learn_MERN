@@ -10,21 +10,6 @@ class Trie {
     this.root = new Node()
   }
 
-  // insert(word){
-  //   let curr = this.root
-
-  //   for(let i=0;i<word.length;i++){
-  //     let charToInsert = word[i]
-
-  //     if (!curr.children.hasownProperty(charToInsert)) {
-  //         curr.children[charToInsert] = new Node()
-  //     }
-
-  //    curr =  curr.children[charToInsert]
-  //   }
-  //   return curr.isWordEnd = true
-  // }
-
   insert(word){
     let curr = this.root
     for(let i=0;i<word.length;i++){
@@ -112,4 +97,32 @@ class Trie {
      }
   }
   
+}
+
+class Node{
+  constructor(){
+    const children = {}
+    isWordEnd = false
+  }
+}
+
+class Trie{
+  constructor(){
+    this.root = new Node();
+  }
+}
+
+insert(word){
+  let curr = this.root;
+
+  for(let i =0 ; i<word.length ; i++){
+     let charToInsert = word[i]
+
+     if (!curr.children.hasOwnProperty(charToInsert)) {
+        curr.children[charToInsert] = new Node()
+     }
+
+     curr = curr.children[charToInsert] 
+  }
+  curr.isWordEnd = true
 }

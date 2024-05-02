@@ -23,13 +23,10 @@ function binarySearch (arr , value){
 const arr = [ 10,36,2,4,2,90 ]
 console.log(binarySearch(arr , 2));
 
-function factorial (n){
-  if (n===0) {
-    return 1
-  }else {
-    return n *  factorial(n-1)
-  }
+// function factorieal(n){
+//   if (n===0) {
+//     return 1
+//   }
 
-}
-
-console.log(factorial(5));
+//   return n * factorieal(n-1)
+// }

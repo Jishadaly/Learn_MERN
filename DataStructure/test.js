@@ -549,3 +549,89 @@ function merge(leftArr ,rightArr){
 //     }
 //  })
 
+const binarySearch1 =(arr,target)=>{
+   let left = 0
+   let right = arr.length - 1
+
+   while(left <= right){
+      let mid = Math.floor((left + right)/2)
+      if (arr[mid] === target) {
+         return mid
+      }
+      if(target < mid){
+         right = mid -1
+      }else{
+         left = mid + 1
+      }
+   }
+
+   return -1
+}
+
+// console.log(binarySearch1([1,2,3,4,5,6],6));
+
+const bubbleSort1 =(arr)=>{
+    let swaped;
+
+    do{
+         swaped = false;
+
+         for(let i=0;i<arr.length;i++){
+             if (arr[i] > arr[i+1]) {
+                 let test = arr[i];
+                 arr[i] = arr[i+1]
+                 arr[i+1] =  test;
+
+                 swaped = true
+             }
+
+
+         }
+    }while(swaped)
+
+    return arr
+}
+
+// console.log(bubbleSort1([1,4,2,5,1,5]));
+
+const selectionSort1 = (arr)=> {
+    let min =0;
+
+    for(let i=0;i<arr.length-1 ;i++){
+     min = i
+     for(let j=i+1 ; j<arr.length -1 ;j++){
+       if (arr[j] < arr[min]) {
+         min = j
+       }
+     }
+      let temp = arr[i]
+      arr[i] = arr[min]
+      arr[min] = temp
+    }
+
+    return arr 
+}
+
+// console.log(selectionSort1([1,4,2,5,1,5]));
+
+
+const insertionSort1  = (arr)=>{
+    for(let i=1;i<arr.length -1; i++ ){
+      let numToInsert  =  arr[i]
+      let j = i-1
+
+      while(j>=0 && arr[j] > numToInsert){
+         arr[j+1] = arr[j]
+         
+         j--
+      }
+
+      arr[j+1] = numToInsert
+    }
+
+    return arr
+}
+
+// console.log(insertionSort1([1,4,2,5,1,5]));
+
+

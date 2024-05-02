@@ -18,6 +18,7 @@ class Stack {
       return this.items.pop()
     }
   }
+
   revers(){
     if(!this.isEmpty()){
       for(let i= this.items.length - 1 ; i >=0 ;i--){
@@ -67,8 +68,9 @@ class Stack {
     let temp = new Stack()
 
     for(let i=0 ; i<mid ; i++ ){
-       temp.push(this.pop())
+       temp.push(this.pop()) 
     }
+
     let midIndex = this.pop()
 
     while(!temp.isEmpty()){
@@ -76,7 +78,7 @@ class Stack {
     }
     return midIndex 
   }
-
+  
 }
 
 
