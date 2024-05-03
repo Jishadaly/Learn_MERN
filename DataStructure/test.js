@@ -49,7 +49,7 @@ function bubbleSort(arr) {
             let temp = arr[i]
             arr[i] = arr[i + 1]
             arr[i + 1] = temp
-
+  
             swaped = true
          }
       }
@@ -131,18 +131,18 @@ function mergeSort(arr) {
    return merge(mergeSort(leftArr), mergeSort(rightArr))
 }
 
-function merge(leftArr, rightArr) {
-   let sortedArr = []
+// function merge(leftArr, rightArr) {
+//    let sortedArr = []
 
-   while (leftArr.length && rightArr.length) {
-      if (leftArr[0] < rightArr[0]) {
-         sortedArr.push(leftArr.shift())
-      } else {
-         sortedArr.push(rightArr.shift())
-      }
-   }
-   return [...sortedArr, ...leftArr, ...rightArr]
-}
+//    while (leftArr.length && rightArr.length) {
+//       if (leftArr[0] < rightArr[0]) {
+//          sortedArr.push(leftArr.shift())
+//       } else {
+//          sortedArr.push(rightArr.shift())
+//       }
+//    }
+//    return [...sortedArr, ...leftArr, ...rightArr]
+// }
 
 //  console.log(mergeSort([36,2,6,13,53,322]));
 
@@ -503,19 +503,19 @@ function mergeSort(arr){
  return merge(mergeSort(leftArr) ,  mergeSort(rightArr))
 }
 
-function merge(leftArr ,rightArr){
-    let sortedArr = []
+// function merge(leftArr ,rightArr){
+//     let sortedArr = []
 
-     while(leftArr.length && rightArr.length){
-      if (leftArr[0] <= rightArr[0] ) {
-         sortedArr.push(leftArr.shift())
-      }else{
-         sortedArr.push(rightArr.shift())
-      }
-     }
+//      while(leftArr.length && rightArr.length){
+//       if (leftArr[0] <= rightArr[0] ) {
+//          sortedArr.push(leftArr.shift())
+//       }else{
+//          sortedArr.push(rightArr.shift())
+//       }
+//      }
 
-     return [...sortedArr,...leftArr,...rightArr]
-}
+//      return [...sortedArr,...leftArr,...rightArr]
+// }
 
 // console.log(mergeSort(arrayToSort));
 
@@ -635,3 +635,351 @@ const insertionSort1  = (arr)=>{
 // console.log(insertionSort1([1,4,2,5,1,5]));
 
 
+function bubbleSort(arr){
+   let swaped;
+
+   do{
+      swaped = false
+      for(let i=0;i<arr.length; i++){
+
+          if (arr[i] > arr[i+1]) {
+
+             let temp = arr[i]
+             arr[i] = arr[i+1]
+             arr[i+1] = temp
+
+
+             swaped = true
+          }
+      }
+
+   }while(swaped);
+
+
+   return arr
+}
+
+// console.log(bubbleSort([42,812,327,1,9,56]));
+
+
+function insertionSort(){
+
+}
+
+
+function selectionSort(arr){
+    let min = 0;
+
+    for(let i=0; i<arr.length ; i++){
+      min = i
+
+      for(let j=i+1 ; j<arr.length ; j++){
+         if (arr[j] < arr[min]) {
+             min = j
+         }
+      }
+       let temp = arr[i]
+       arr[i] = arr[min]
+       arr[min] = temp
+    }
+
+    return arr
+}
+
+// console.log(selectionSort([42,812,327,1,9,56]));
+
+function insertionSort(arr){
+   for(let i=1;i<arr.length;i++){
+      let numToInsert = arr[i];
+      let j = i-1
+
+      while(j >= 0 && arr[j] > numToInsert){
+         arr[j+1] = arr[j]
+
+         j--
+
+      }
+
+      arr[j+1] = numToInsert
+   }
+   return arr
+}
+
+// console.log(insertionSort([42,812,327,1,9,56]));
+
+
+function quickSort(arr){
+
+if(arr.length < 2){
+   return arr
+   }
+
+   let pivot = arr[arr.length -1]
+   let left = []
+   let right  = []
+
+   for(let i=0;i<arr.length -1; i++){
+       if (arr[i] < pivot) {
+          left.push(arr[i])
+       }else{
+         right.push(arr[i])
+       }
+   }
+
+   return [...quickSort(left) , pivot , ...quickSort(right)]
+
+}
+
+// console.log(quickSort([42,812,327,1,9,56]));
+
+
+function  mergeSort(arr){
+    if (arr.length < 2) {
+      return arr
+    }
+
+    let mid = Math.floor(arr.length/2)
+    let left = arr.slice(0,mid)
+    let right = arr.slice(mid)
+
+
+    return merge(mergeSort(left) , mergeSort(right))
+}
+
+function merge(left , right){
+   let sortedArr = []
+
+   while(left.length && right.length){
+       if (left[0] <= right[0]) {
+          sortedArr.push(left.shift())
+       }else{
+         sortedArr.push(right.shift())
+       }
+   }
+
+   return [...sortedArr , ...left,...right]
+}
+
+// console.log(mergeSort([ 1, 9, 42, 56, 327, 812 ]));
+
+
+class Node {
+   constructor(value){
+      this.value = value
+      this.left = null
+      this.right = null
+   }
+}
+
+class binarySearch {
+   constructor(){
+      this.root = null
+   }
+
+   isEmpty(){
+      return this.root === null
+   }
+
+   insert(val){
+      const node = new Node(val);
+      if (this.isEmpty()) {
+         this.root = node
+      }else{
+         this.insertNode( this.root, node);
+      }
+   }
+
+   insertNode(root , node){
+       if (root.value < node.value) {
+          if (root.left === null) {
+             root.left = node
+          }else{
+             this.insertNode(root.left  , node)
+          } 
+       }else{
+         if (root.right === null) {
+            root.right = node
+         }else{
+            this.insertNode(root.right , node)
+         }
+       }
+   }
+
+   inOrder(root){
+      if (root) {
+         this.inOrder(root.left)
+         console.log(root.value);
+         this.inOrder(root.right)
+      }
+   }
+   preOrder(root){
+      if (root) {
+         this.preOrder(root.left)
+         console.log(root.value);
+         this.preOrder(root.right)
+      }
+   }
+   postOrder(root){
+      if (root) {
+         this.postOrder(root.left)
+         console.log(root.value);
+         this.postOrder(root.right)
+      }
+   }
+}
+
+
+class HashTable {
+   constructor(size){
+      this.table = new Array(size)
+      this.size = size
+   }
+
+   hash(key){
+      let totel = 0;
+
+      for(let i=0 ; i<key.length ; i++){
+         totel += key[i];
+      }
+
+      return totel
+   }
+
+   set(key , value){
+       const index = this.hash(key);
+
+       const bucket = this.table[index];
+       if (!bucket) {
+           this.table = [[key , value] ]
+       }else{
+         let sameKeyItem = bucket.find((item) => item[0] === key);
+         if (sameKeyItem) {
+            sameKeyItem[1] = value
+         }else{
+             bucket.push([key , value]);
+         }
+       }
+   }
+
+   get(key){
+      const index = this.hash(key);
+      let bucket = this.table[index]
+
+      if (bucket) {
+          const sameKeyItem = bucket.find( item => item[0] === key);
+
+          if (sameKeyItem) {
+             return sameKeyItem[1]
+          }
+      }
+      return -1
+   }
+
+   remove(key){
+      const index = this.hash(key);
+
+      let bucket = this.table[index]
+
+      if (bucket) {
+         let sameKeyItem = bucket.find(item => item[0] === key)
+
+         if (sameKeyItem) {
+             bucket.splice(bucket.indexOf(sameKeyItem),1)
+         }
+      }
+   }
+
+
+}
+
+class Graph {
+   constructor(){
+      this.adjecentList = {}
+   }
+
+   addVertex(vertex){
+      if (!this.adjecentList[vertex]) {
+         this.adjecentList[vertex] = new Set()
+      }
+   }
+
+   addEdges(vertex1 , vertex2){
+         if (!this.adjecentList[vertex1]) {
+             this.addVertex(vertex1)
+         }
+         if (!this.adjecentList[vertex2]) {
+            this.addVertex(vertex2)
+        }
+
+        this.adjecentList[vertex1].add(vertex2)
+        this.adjecentList[vertex2].add(vertex1)
+   }
+
+   deleteEdges(vertex1, vertex2){
+
+         this.adjecentList[vertex1].delete(vertex2)
+         this.adjecentList[vertex2].delete(vertex1)
+
+   }
+
+   deleteVertex(vertex){
+         if (!this.adjecentList[vertex]) {
+            return null
+         }
+         for( let adjecentVertex in this.adjecentList){
+             this.deleteEdges(vertex , adjecentVertex)
+         }
+
+         delete this.adjecentList[vertex]
+   }
+
+   dfs(startIndex , visited = {} ){
+      if (!this.adjecentList[startIndex]) {
+         return null
+      }
+      console.log(startIndex);
+      visited [startIndex] = true
+
+      for(let neigbor of this.adjecentList[startIndex]){
+         if (!visited[neigbor]) {
+            this.dfs(neigbor , visited)
+         }
+      }
+   }
+}
+
+class Node {
+   constructor(){
+      this.children = {};
+      this.isWordENd = false
+   }
+
+   insert(word){
+      let curr =  this.root;
+
+      for(let i=0 ; i<word.length ; i++){
+         let charTOinsert = word[i]
+          if (!curr.children.hasOwnProperty(charTOinsert)) {
+             curr.children[charTOinsert] = new Node;
+          }
+
+          curr = curr.children[charTOinsert] 
+      }
+      curr.isWordENd = true
+   }
+
+   contains(word){
+      let curr = this.root;
+
+      for(let i=0;i<word.length; i++){
+          let charTofind = word[i]
+          if (!curr.children.hasOwnProperty(charTofind)) {
+              return false
+          }
+          curr  = curr.children[charTofind];
+      }
+      return curr.isWordENd
+   }
+   
+
+}

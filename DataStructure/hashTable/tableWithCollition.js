@@ -15,6 +15,7 @@ class HashTable {
   }
 
   set(){
+
     const index = this.hash(key);
     const bucket = this.table[index]
 
@@ -29,6 +30,7 @@ class HashTable {
         bucket.push([key , value])
       }
     }
+    
   }
 
   get(key){

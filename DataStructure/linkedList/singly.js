@@ -141,89 +141,188 @@
 // list.reverse()
 // list.print()
 
-class Node {
+// class Node {
+//   constructor(value){
+//      this.value = value
+//      this.next = null
+//   }
+// }
+
+// class LinkedList {
+//   constructor(){
+//      this.head = null
+//      this.size = 0
+//   }
+
+//   isEmpty(){
+//      return this.size === 0
+//   }
+
+//   append(value){
+//      const node = new Node(value)
+//      if (this.isEmpty()) {
+//         this.head = node
+//      }else{
+//         let prev = this.head
+
+//         while(prev.next){
+//            prev = prev.next
+//         }
+//         prev.next = node
+//         node.next = null
+//      }
+//      this.size ++
+//   }
+
+
+//   prepend(value){
+//     const node = new Node(value)
+//     if (this.isEmpty()) {
+//       this.head = node
+//     }else{
+//       node.next = this.head
+//       this.head = node           
+//     }
+//   }
+
+
+//   print(){
+//     if (this.isEmpty()) {
+//       console.log("eptyyyy");
+//     }else{
+//       let curr = this.head
+//       while(curr){
+//         console.log(curr.value); 
+//         curr = curr.next       
+//       }
+     
+//     }
+//   }
+
+//   reveres(){
+//     let prev = null;
+//         let curr = this.head;
+    
+//         while (curr) {
+
+//           let next = curr.next;
+//           curr.next = prev;    
+//           prev = curr          
+//           curr = next           
+//         }
+
+//         this.head = prev 
+//   }
+            
+ 
+// }
+
+
+
+// const list = new LinkedList()
+
+// list.append(50)
+// list.append(60)
+// list.append(70)
+// list.prepend(333)
+// list.print()
+// console.log(list);
+
+
+
+class Node{
   constructor(value){
-     this.value = value
-     this.next = null
+    this.value = value
+    this.next = null
   }
 }
 
-class LinkedList {
+class LinkedList{
   constructor(){
-     this.head = null
-     this.size = 0
+    this.head = null
+    this.size = 0
   }
 
   isEmpty(){
-     return this.size === 0
+    return this.size === 0
   }
 
   append(value){
-     const node = new Node(value)
-     if (this.isEmpty()) {
-        this.head = node
-     }else{
-        let prev = this.head
-
-        while(prev.next){
-           prev = prev.next
-        }
-        prev.next = node
-        node.next = null
-     }
-     this.size ++
-  }
-
-
-  prepend(value){
     const node = new Node(value)
+
     if (this.isEmpty()) {
       this.head = node
     }else{
-      node.next = this.head
-      this.head = node           
+      let curr = this.head
+
+      while(curr.next){
+        curr = curr.next
+      }
+      curr.next = node
     }
+    this.size ++
   }
 
+  prepend(value){
+      const node = new Node(value)
+      if (this.isEmpty()) {
+         this.head === node
+      }else{
+        
+         node.next = this.head
+         this.head = node
+      }
+      this.size ++
+  }
 
   print(){
     if (this.isEmpty()) {
-      console.log("eptyyyy");
+      console.log("list is empty");
     }else{
-      let curr = this.head
-      while(curr){
-        console.log(curr.value); 
-        curr = curr.next       
+      let curr = this.head;
+
+      while(curr.next){
+         console.log(curr.value);
+         curr = curr.next
       }
-     
     }
   }
 
-  reveres(){
+  reverse(){
+    if (this.isEmpty() || !this.head.next ) {
+      return;
+    }
+
     let prev = null;
-        let curr = this.head;
-    
-        while (curr) {
+    let curr = this.head;
+    let next = null;
 
-          let next = curr.next;
-          curr.next = prev;    
-          prev = curr          
-          curr = next           
-        }
 
-        this.head = prev 
+    while(curr){
+      next = curr.next;
+      curr.next = prev
+      prev = curr
+      curr = next
+    }
+
+    this.head = prev;
   }
-            
- 
+
 }
 
 
+const list =  new LinkedList()
 
-const list = new LinkedList()
 
-list.append(50)
-list.append(60)
-list.append(70)
-list.prepend(333)
+
+
+
+list.append('h')
+list.append('e')
+list.append('l')
+list.append('l')
+list.append('0')
+
+list.reverse()
+
 list.print()
-console.log(list);
