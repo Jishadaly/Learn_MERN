@@ -1,3 +1,5 @@
+//array methods
+
 const concatgination = () => {
 
   const arr1 = ["Cecilie", "Lone"];
@@ -28,18 +30,21 @@ const flattening = () => {
 
 const spliceArray = () => {
   const fruits = ["Banana", "Orange", "Apple", "Mango"];
-  fruits.splice(2, 2, "Lemon", "Kiwi");
+  fruits.splice(0, 2, "new added item");
 
   return fruits
 }
 
+// console.log(spliceArray());
+
 
 const sliceArray = () => {
   const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
-  const citrus = fruits.slice(2);
+  const citrus = fruits.slice();
 
   return citrus
 }
+// console.log(sliceArray());
 
 
 const indexOfArray = () => {
@@ -76,7 +81,7 @@ const findIndex = () => {
 
 
 const findLastIndex = () => {
-  const temp = [27, 28, 30, 40, 42, 35, 30];
+  const temp = [27, 28, 30, 40,42, 35, 30];
   let high = temp.findLast(x => x > 40);
 
   return high
@@ -101,11 +106,8 @@ const compareFunction_sort = () => {
 
 const findHighestNum = () => {
   const arr = [1, 2, 3]
-  const maxNum = function myArrayMax(arr) {
-    return Math.max.apply(null, arr);
-  }
-  return maxNum(arr)
-  
+  const max = Math.max(...arr);
+  return max 
 }
 
 // console.log(findHighestNum());
@@ -138,26 +140,30 @@ const mapAArray = () => {
 
 const flatMap  = () => {
   const myArr = [1, 2, 3, 4, 5, 6];
-  const newArr = myArr.flatMap((x) => x * 2);
+  const newArr = myArr.flatMap((x) => [x, x * 2]);
 
   return newArr
 }
+
+// console.log(flatMap());
 
 
 const arrayentries = () => {
   const fruits = ["Banana", "Orange", "Apple", "Mango"];
   const f = fruits.entries()
 
-   for(let x of f){
-    console.log(x);
+   for(let values of f){
+    console.log(values);
    }
+
+   
 }
 
-// console.log(arrayentries());
+console.log(arrayentries());
 
 
 const BooleanCheck = (num1 , num2) =>{
     return num1 === num2
 }
 
-console.log(BooleanCheck(1,1));
+// console.log(BooleanCheck(1,1));

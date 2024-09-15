@@ -917,3 +917,21 @@ function binarySearch(arr , value){
 
 const arr1 = [1,2,3,4,5,6,7,8]
 console.log(binarySearch(arr1 , 4));
+
+//print even numbers with generate function
+
+
+
+function* sampleGen(num){
+  for(let i=0; i<num; i++){
+      if(i % 2===0){
+          yield i
+      }
+  }
+}
+
+const iterator = sampleGen(10);
+// console.log(iterator.next());
+
+
+
