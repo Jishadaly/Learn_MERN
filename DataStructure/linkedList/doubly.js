@@ -1,5 +1,5 @@
 class Node {
-  constructor(value){
+  constructor(value) {
     this.value = value
     this.next = null
     this.prev = null
@@ -7,117 +7,117 @@ class Node {
 }
 
 class DoblyLinkedList {
-  constructor(){
+  constructor() {
     this.head = null
     this.tail = null
     this.size = 0
   }
 
-  isEmpty(){
+  isEmpty() {
     return this.size === 0
   }
 
-  prepend(value){
+  prepend(value) {
     const node = new Node(value)
-
-    if (this.isEmpty()) {
-      this.head = node
-      this.tail  = node
-    }else{
-       node.next = this.head
-       this.head.prev = node;
-       this.head = node;
-    }
-    this.size ++
-  }
-
-  append(value){
-    const node = new Node(value)
-
 
     if (this.isEmpty()) {
       this.head = node
       this.tail = node
-    }else{
+    } else {
+      node.next = this.head
+      this.head.prev = node;
+      this.head = node;
+    }
+    this.size++
+  }
+
+  append(value) {
+    const node = new Node(value)
+
+    if (this.isEmpty()) {
+      this.head = node
+      this.tail = node
+    } else {
       this.tail.next = node
       node.prev = this.tail
       this.tail = node
     }
-    this.size ++
+    this.size++
   }
 
-  removeFromFront(){
+
+  removeFromFront() {
     if (this.isEmpty()) {
       return console.log("list is empty");
     }
 
-    const value= this.head.value;
+    const value = this.head.value;
     this.head = this.head.next;
 
     if (this.head !== null) {
       this.head.prev = null
-    }else{
+    } else {
       this.tail = null
     }
-    this.size --
+    this.size--
     return value;
   }
 
-  removeFromEnd(){
+
+  removeFromEnd() {
     if (this.isEmpty()) {
       return console.log("list is empty ");
     }
 
     const value = this.tail.value
     this.tail = this.tail.prev
-    
+
     if (this.tail !== null) {
       this.tail.next = null
-    }else{
+    } else {
       this.head = null
     }
-    this.size --
+    this.size--
     return value
   }
 
-  findMid(){
-      if (this.isEmpty()) {
-        return null
-      }else{
-        let slow= this.head
-        let fast = this.head
+  findMid() {
+    if (this.isEmpty()) {
+      return null
+    } else {
+      let slow = this.head
+      let fast = this.head
 
-        while(fast !== null && fast.next !== null){
-          slow = slow.next
-          fast = fast.next.next
-        }
-        return slow.value
+      while (fast !== null && fast.next !== null) {
+        slow = slow.next
+        fast = fast.next.next
       }
+      return slow.value
+    }
   }
 
-  print(){
+  print() {
     if (this.isEmpty()) {
       return console.log("list is empty");
-    }else{
+    } else {
       let curr = this.head
       let list = ""
-      while(curr){
+      while (curr) {
         console.log(curr.value);
         list += `${curr.value}`
         curr = curr.next
       }
     }
   }
-  
 
 }
 
-const list  = new DoblyLinkedList()
+const list = new DoblyLinkedList()
 list.prepend(10)
 list.append(60)
 list.prepend(40)
 list.print()
-console.log("middle value : ",list.findMid());
+console.log("middle value : ", list.findMid());
 
 
 

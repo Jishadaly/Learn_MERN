@@ -934,4 +934,16 @@ const iterator = sampleGen(10);
 // console.log(iterator.next());
 
 
+// a function that take multiple argument that tramsformed into a series of functions called carriying..
+function carrying(num1){
+    return function a(num2){
+        return function b (num3){
+                return num1 + num2+num3
+        }
+    }
+}
+const sum = carrying(1)(2)(3)
+//console.log(sum);
 
+const shallow = JSON.parse(JSON.stringify(array))
+console.log(shallow);

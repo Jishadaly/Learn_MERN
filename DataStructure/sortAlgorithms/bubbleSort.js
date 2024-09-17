@@ -1,6 +1,4 @@
-
 const arr = [2,3,5,7,4,5]
-
 
 function bubleSort(){
     let swaped 
@@ -18,5 +16,4 @@ function bubleSort(){
     }while(swaped);
 }
 
-
-bubleSort(arr)
+bubleSort(arr);
