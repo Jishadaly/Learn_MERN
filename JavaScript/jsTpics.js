@@ -920,8 +920,6 @@ console.log(binarySearch(arr1 , 4));
 
 //print even numbers with generate function
 
-
-
 function* sampleGen(num){
   for(let i=0; i<num; i++){
       if(i % 2===0){
@@ -933,7 +931,6 @@ function* sampleGen(num){
 const iterator = sampleGen(10);
 // console.log(iterator.next());
 
-
 // a function that take multiple argument that tramsformed into a series of functions called carriying..
 function carrying(num1){
     return function a(num2){
@@ -943,7 +940,6 @@ function carrying(num1){
     }
 }
 const sum = carrying(1)(2)(3)
-//console.log(sum);
 
 const shallow = JSON.parse(JSON.stringify(array))
 console.log(shallow);

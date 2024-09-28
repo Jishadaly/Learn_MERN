@@ -1,19 +1,54 @@
-function selectionSort(arr) {
-    let n = arr.length;
-    let min;
+// function selectionSort(arr) {
+//     let n = arr.length;
+//     let min;
 
-    for (let i = 0; i < n - 1; i++) {
+//     for (let i = 0; i < n - 1; i++) {
+//         min = i
+//         for (let j = i + 1; j < n ; j++) {
+//             if (arr[j] < arr[min]) {
+//                 min = j;
+//             }
+//         }
+
+//         let temp = arr[i];
+//         arr[i] = arr[min]
+//         arr[min] = temp;
+//     }
+
+//     return arr
+// }
+
+// function selectionSort(arr) {
+//     let min;
+//     for (let i = 0; i < arr.length - 1; i++) {
+//         min = i;
+//         for (let j = i + 1; j < arr.length ; j++) {
+//             if (arr[j] < arr[min]) {
+//                 min = j;
+//             }
+//         }
+//         let temp = arr[i]
+//         arr[i] = arr[min];
+//         arr[min] = temp;
+//     }
+//     return arr
+// }
+
+function selectionSort(arr) {
+    let min;
+    for (let i = 0; i < arr.length; i++) {
         min = i
-        for (let j = i + 1; j < n - 1; j++) {
-            if (arr[j] < arr[min]) {
-                min = j;
+        for (let j = i + 1; j < arr.length; j++) {
+            while (arr[j] < arr[min]) {
+                min = j
             }
         }
-
         let temp = arr[i];
-        arr[i] = arr[min]
-        arr[min] = temp;
+        arr[i] = arr[min];
+        arr[min] = temp
     }
 
     return arr
 }
+
+console.log(selectionSort([4, 2, 6, 2, 4, 3, -1]));

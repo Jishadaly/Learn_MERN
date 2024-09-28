@@ -30,7 +30,6 @@
       ],
     }
   ]
-
 // return an an array of objects containing each students name and sum of their mark
 // get all the fibonacci numbers within the limit of 100 using reccursion.
-
+                                                                                                                                                                              
