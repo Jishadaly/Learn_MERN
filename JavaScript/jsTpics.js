@@ -67,15 +67,15 @@
 // // // getData();
 
 
-// // // function  cretetePerson(name , age) {
-// // //    return {
-// // //     name:name,
-// // //     age:age,
-// // //     greet:function(){
-// // //       console.log(`my name is ${name} and my age is ${age}`);
-// // //     }
-// // //    }
-// // // }
+// function  cretetePerson(name , age) {
+//    return {
+//     name:name,
+//     age:age,
+//     greet:function(){
+//       console.log(`my name is ${name} and my age is ${age}`);
+//     }
+//    }
+// }
 
 
 // // // const person1 = cretetePerson('alice' , 30)
@@ -98,21 +98,19 @@
 
 // // // const numbers = [1, 2, 3, 4, 5];
 
-// // // const double =  numbers.filter( num=>  num % 2 === 0 )
-// // // console.log(double);
-
-
+// const double =  numbers.filter( num=>  num % 2 === 0 )
+// console.log(double);
 
 // // // const dupArry = [...numbers , ...double]
 // // // console.log(dupArry);
 
 
 // // // function outerFunction(){
-// // //   const outerVariable = 'iam from the order function'
+// // //   const outerVariable = 'iam from the outer function'
 
-// // //   function innerFunction(){
-// // //      console.log(outerVariable);
-// // //   }
+// //   function innerFunction(){
+// //      console.log(outerVariable);
+// //   }
 
 // // // return innerFunction
 // // // }
@@ -121,13 +119,13 @@
 
 // // // innerFunction()
 
-// // // function* addGeneretor(a,b){
-// // //    yield a + b
-// // //    yield a * b
-// // //    yield a % b
-// // //    yield a - b
+// // function* addGeneretor(a,b){
+// //    yield a + b
+// //    yield a * b
+// //    yield a % b
+// //    yield a - b
 
-// // // }
+// // }
 
 
 // // // const genertor = addGeneretor(1,5)
@@ -301,6 +299,7 @@
 // // // function compare(obj1,obj2){
 // // //   key1=Object.keys(obj1)
 // // //   key2=Object.keys(obj2)
+
 // // //   if(key1.length!==key2.length){
 // // //     return false
 // // //   }
@@ -713,7 +712,6 @@ console.log(printCurrentTime());
 
 function findNonrepeating(arr) {
   const res = arr.filter((val) => arr.indexOf(val) === arr.lastIndexOf(val));
-
   return res
 }
 let numbers = [-1, 2, 5, 6, 2, 9, -1, 6, 5, -1, 3]
@@ -733,7 +731,7 @@ function combination(arr) {
 
     }
 
-    
+
   }
   return result
 
@@ -743,33 +741,33 @@ const num = [4, 5, 6, 3, 2, 6, 4];
 // console.log(combination(num));
 
 
-function mostRepeating(arr){
-    let Maxcount = 0;
-    let repeatingElmnt ;
+function mostRepeating(arr) {
+  let Maxcount = 0;
+  let repeatingElmnt;
 
-    for(let i=0 ; i<arr.length ; i++){
-      let count = 0 ;
-       for(let j=i+1 ; j<arr.length;j++){
-          if(arr[i] === arr[j]){
-             count ++
-          }
-       }
-       if(count > Maxcount){
-        Maxcount = count;
-        repeatingElmnt  = arr[i]
-       }
+  for (let i = 0; i < arr.length; i++) {
+    let count = 0;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        count++
+      }
     }
+    if (count > Maxcount) {
+      Maxcount = count;
+      repeatingElmnt = arr[i]
+    }
+  }
 
-    return repeatingElmnt
+  return repeatingElmnt
 }
 
 // console.log(mostRepeating(num));
 
 
-function* endlessEven (){
+function* endlessEven() {
   let num = 0;
 
-  while(true){
+  while (true) {
     yield num
     num += 1
   }
@@ -782,73 +780,67 @@ const generate = endlessEven()
 //   console.log(generate.next().value);
 // }
 
-function longestWord(string){
-    let  maxCount =0;
+function longestWord(string) {
+  let maxCount = 0;
 
-    let longestWord = '';
+  let longestWord = '';
 
-    let str  = string.split(' ')
+  let str = string.split(' ')
 
-    for(let i=0;i<str.length ; i++){
-      let count = 0;
-      let current = str[i]
-       
+  for (let i = 0; i < str.length; i++) {
+    let count = 0;
+    let current = str[i]
 
-        if(current.length > maxCount){
-          maxCount = current.length;
-          longestWord = str[i]
-        }
+
+    if (current.length > maxCount) {
+      maxCount = current.length;
+      longestWord = str[i]
     }
+  }
 
-return longestWord
+  return longestWord
 
 }
 
-const string = "The quick brown fox jumps over the lazy gigantic dog" ; 
+const string = "The quick brown fox jumps over the lazy gigantic dog";
 
 console.log(longestWord(string));
 
 
-function longestSubString(str){
-   let maxCount = 0;
-   let word ; 
-   for(let i=0;i<str.length ; i++){
-      let count = 0;
-      for(let j=0 ;j<str.length;j++ ){
-         if (j !== i && str[i] === str[j]) {
-            count ++;
-         }
-
-         if(count > maxCount){
-           maxCount = count
-           word = str[i]
-         }
+function longestSubString(str) {
+  let maxCount = 0;
+  let word;
+  for (let i = 0; i < str.length; i++) {
+    let count = 0;
+    for (let j = 0; j < str.length; j++) {
+      if (j !== i && str[i] === str[j]) {
+        count++;
       }
-   }
-   return word
+
+      if (count > maxCount) {
+        maxCount = count
+        word = str[i]
+      }
+    }
+  }
+  return word
 }
 
 console.log(longestSubString("ggiirrdffdgjjjjssssssss"));
 
 
-function reverseString(str){
-    if (str.length < 1) {
-      return str;
-    }
+function reverseString(str) {
+  if (str.length < 1) {
+    return str;
+  }
 
-    return reverseString(str.substring(1)) + str[0]
+  return reverseString(str.substring(1)) + str[0]
 }
 
 console.log(reverseString("jishad ali"));
 
-
-
- const arraySum = (arr) => arr.reduce((v , a) => v + a , 0)
-console.log(arraySum([1,2]));
-
-function sumObjValues (obj){
-
-}
+const arraySum = (arr) => arr.reduce((v, a) => v + a, 0)
+console.log(arraySum([1, 2]));
 
 const numbersObject = {
   a: 10,
@@ -857,74 +849,69 @@ const numbersObject = {
   d: 15
 };
 
-// console.log(sumObjValues(numbersObject));
-// console.log(5>4>3);
-// console.log([1]==[1]);
-// let ab = 10;
-// console.log('string'=== typeof('10'));
 
-function reverseStringStack (str){
-    const charArray = str.split('')
-    const stack = []
+function reverseStringStack(str) {
+  const charArray = str.split('')
+  const stack = []
 
-    for( let char of charArray){
-        stack.push(char)
-    }
+  for (let char of charArray) {
+    stack.push(char)
+  }
 
-    for(let i=0;i<charArray.length ; i++){
-       charArray[i]  =  stack.pop()
-    }
+  for (let i = 0; i < charArray.length; i++) {
+    charArray[i] = stack.pop()
+  }
 
-    
-    const reverseString = charArray.join('');
-    return reverseString 
+
+  const reverseString = charArray.join('');
+  return reverseString
 }
 
 // console.log(reverseStringStack('jishadaly'));
 
-function reverseStringRec(str){
-   if (str.length < 1 ) {
-     return str
-   }
+function reverseStringRec(str) {
+  if (str.length < 1) {
+    return str
+  }
 
-   return reverseString(str.substring(1)) + str[0]
+  return reverseString(str.substring(1)) + str[0]
 }
 
 // console.log(reverseStringRec('jishad ali'));
 
 
-function binarySearch(arr , value){
-     
-  let left  = 0;
-  let right = arr.length -1 ;
+function binarySearch(arr, value) {
 
-  while(left <= right){
-    let middle = Math.floor((left + right)/2)
-     
-    if (  arr[middle] === value ) {
-       return middle
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left <= right) {
+    let middle = Math.floor((left + right) / 2)
+
+    if (arr[middle] === value) {
+      return middle
     }
-     
+
     if (value < arr[middle]) {
-      right  = middle - 1
-    }else{
-      left = middle + 1
+         right = middle - 1
+    } else {
+         left = middle + 1
     }
   }
+
   return -1
 }
 
-
-const arr1 = [1,2,3,4,5,6,7,8]
-console.log(binarySearch(arr1 , 4));
+const arr1 = [1, 2, 3, 4, 5, 6, 7, 8]
+console.log(binarySearch(arr1, 4));
 
 //print even numbers with generate function
 
-function* sampleGen(num){
-  for(let i=0; i<num; i++){
-      if(i % 2===0){
-          yield i
-      }
+function* sampleGen(num) {
+  for (let i = 0; i < num; i++) {
+    if (i % 2 === 0) {
+      yield i
+    }
   }
 }
 
@@ -932,14 +919,13 @@ const iterator = sampleGen(10);
 // console.log(iterator.next());
 
 // a function that take multiple argument that tramsformed into a series of functions called carriying..
-function carrying(num1){
-    return function a(num2){
-        return function b (num3){
-                return num1 + num2+num3
-        }
+function carrying(num1) {
+  return function a(num2) {
+    return function b(num3) {
+      return num1 + num2 + num3
     }
+  }
 }
-const sum = carrying(1)(2)(3)
 
+const sum = carrying(1)(2)(3)
 const shallow = JSON.parse(JSON.stringify(array))
-console.log(shallow);

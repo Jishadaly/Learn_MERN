@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Counter from "./compontes/counter";
+import FormComponents from "./compontes/formComponents";
+import ToggleComponent from "./compontes/ToggleComponent";
+import Dashboard from "./compontes/Dashboard";
+import Login from "./compontes/Login";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="counter" element = {<Counter/>} />
+        <Route path="form" element = {<FormComponents/>} />
+        <Route path="toggle" element={<ToggleComponent/>}/>
+        <Route path="dashboard" element={<Dashboard/>} />
+        <Route path="login" element={<Login/>} />
+
+      </Routes>
     </div>
   );
 }

@@ -1,19 +1,23 @@
-const arr = [2, 3, 42, 62];
+const arr = [ 3,-1 ,42, 62];
 
-function bubleSort(arr) {
-    let swaped;
+function bubbleSort(arr) {
+    let swapped;
+
     do {
-        swaped = false;
-        for (let i = 0; i < arr.length - 1; i++) {
+        swapped = false
+        for (let i = 0; i < arr.length; i++) {
             if (arr[i] > arr[i + 1]) {
-                [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
-
-                swaped = true;
+                let temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp
+                swapped = true
             }
+
         }
-    } while (swaped);
+
+    } while (swapped);
 
     return arr
 }
 
-console.log(bubleSort(arr));
+console.log(bubbleSort(arr));
