@@ -5,6 +5,7 @@ export default function Counter() {
     
     const incrementCall = useCallback(()=>{
         setCount(count+ 1)
+        throw new Error('crashed')
     },[count]);
     const decrementCall = useCallback(()=>{
         setCount(count - 1)
