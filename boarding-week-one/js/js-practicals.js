@@ -1,3 +1,4 @@
+
 [
   {
     "id": 12345,
@@ -150,6 +151,7 @@ const generate = printNum();
 // const str = 'fbsdjkkkkkkkkksssssssssjjjjjjjjjjjsguyh';
 // console.log(logenstsubStr(str));
 
+
 function findLongestStr(str) {
   let map = new Map();
   let string = '';
@@ -172,4 +174,44 @@ function findLongestStr(str) {
  return strq
 }
 
-console.log(findLongestStr(str));
+// console.log(findLongestStr(str));
+
+let countDown;
+
+function statCountDown(sec){
+
+  let reminingTime = sec;
+
+  countDown = setInterval(()=>{
+    console.log(reminingTime);
+    reminingTime --;
+
+    if (reminingTime < 0) {
+       clearInterval(countDown);
+       console.log('finished');
+       
+    }
+  },1000)
+   
+}
+
+// statCountDown(5);
+
+
+function printNum(num){
+  let count = 1;
+
+  do {
+      console.log("Iteration: " + count);  // This will run at least once
+      count++;
+  } while (count <= num);
+}
+
+printNum(10);
+
+
+function sample(value = 'dev'){
+  console.log('hello ' + value);
+}
+
+sample();
