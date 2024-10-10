@@ -1,70 +1,69 @@
-// // // (function(){
-// // // console.log("this is ummediat invoked funvtions");
-// // // })();
+// (function(){
+// console.log("this is ummediat invoked funvtions");
+// })();
 
-// // // const promis = new Promise((resolve , reject)=>{
-// // //     setTimeout(() => {
-// // //       console.log("data fetched");
-// // //     }, 2000);
-// // // }).then((res)=>{
-// // //   console.log(res);
-// // // }).catch((Error)=>{
-// // //   console.log(Error);
-// // // })
+// const promis = new Promise((resolve , reject)=>{
+//     setTimeout(() => {
+//       console.log("data fetched");
+//     }, 2000);
+// }).then((res)=>{
+//   console.log(res);
+// }).catch((Error)=>{
+//   console.log(Error);
+// })
 
-// // // function * simpleGeneretor(){
-// // //   yield 1;
-// // //   yield 2;
-// // // }
+// function * simpleGeneretor(){
+//   yield 1;
+//   yield 2;
+// }
 
-// // // const genertor = simpleGeneretor();
+// const genertor = simpleGeneretor();
 
-// // // for (const value of genertor){
-// // //   console.log(value);
-// // // }
+// for (const value of genertor){
+//   console.log(value);
+// }
 
+// function multiply(a , b , callback){
+//     const result  = a * b
 
-// // // function multiply(a , b , callback){
-// // //     const result  = a * b
+//     callback(result)
+// }
 
-// // //     callback(result)
-// // // }
+// function handleResult (result){
+//     console.log(result);
+// }
 
-// // // function handleResult (result){
-// // //     console.log(result);
-// // // }
+// multiply(10,3,handleResult)
 
-// // // multiply(10,3,handleResult)
+// function* addGeneretor(a,b){
+//    yield a+b
+//    yield a * b
+//    yield a -b
+// }
 
-// // // function* addGeneretor(a,b){
-// // //    yield a+b
-// // //    yield a * b
-// // //    yield a -b
-// // // }
+// const genertor = addGeneretor(10,2)
+// const result = genertor.next().value;
+// const resultMul = genertor.next().value;
+// const resultSub = genertor.next().value;
+// console.log(result);
+// console.log(resultMul);
+// console.log(resultSub);
 
-// // // const genertor = addGeneretor(10,2)
-// // // const result = genertor.next().value;
-// // // const resultMul = genertor.next().value;
-// // // const resultSub = genertor.next().value;
-// // // console.log(result);
-// // // console.log(resultMul);
-// // // console.log(resultSub);
+// async function getData(){
+//   try {
+//     const data1 = await getDataFromServer();
 
-// // // async function getData(){
-// // //   try {
-// // //     const data1 = await getDataFromServer();
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
-// // //   } catch (error) {
-// // //     console.log(error);
-// // //   }
-// // // }
-
-// // // function getDataFromServer(){  
-// // //   setTimeout(()=>{
-// // //     console.log("fetch data");
-// // //   },3000)
-// // // }
-// // // getData();
+// function getDataFromServer(){  
+//   setTimeout(()=>{
+//     console.log("fetch data");
+//   },3000)
+// }
+// getData();
 
 
 // function  cretetePerson(name , age) {
@@ -78,239 +77,237 @@
 // }
 
 
-// // // const person1 = cretetePerson('alice' , 30)
-// // // person1.greet()
+// const person1 = cretetePerson('alice' , 30)
+// person1.greet()
 
-// // // const arr1 = [1 ,2,3,4,5]
-// // // const arr2 = [1 ,2,3,4,5]
+// const arr1 = [1 ,2,3,4,5]
+// const arr2 = [1 ,2,3,4,5]
 
-// // // const combained = arr1.concat(arr2)
-// // // console.log(combained);
+// const combained = arr1.concat(arr2)
+// console.log(combained);
 
-// // // const obj = {
-// // //   a: 10 ,
-// // //   b:20,
-// // //   c:30
-// // // }
+// const obj = {
+//   a: 10 ,
+//   b:20,
+//   c:30
+// }
 
-// // // const keys = Object.entries(obj)
-// // // console.log(keys);
+// // const keys = Object.entries(obj)
+// // console.log(keys);
 
-// // // const numbers = [1, 2, 3, 4, 5];
+// // const numbers = [1, 2, 3, 4, 5];
 
 // const double =  numbers.filter( num=>  num % 2 === 0 )
 // console.log(double);
 
-// // // const dupArry = [...numbers , ...double]
-// // // console.log(dupArry);
+// const dupArry = [...numbers , ...double]
+// console.log(dupArry);
 
 
-// // // function outerFunction(){
-// // //   const outerVariable = 'iam from the outer function'
+// function outerFunction(){
+//   const outerVariable = 'iam from the outer function'
 
-// //   function innerFunction(){
-// //      console.log(outerVariable);
-// //   }
+//   function innerFunction(){
+//      console.log(outerVariable);
+//   }
 
-// // // return innerFunction
-// // // }
-
-// // // const innerFunction = outerFunction();
-
-// // // innerFunction()
-
-// // function* addGeneretor(a,b){
-// //    yield a + b
-// //    yield a * b
-// //    yield a % b
-// //    yield a - b
-
+// // return innerFunction
 // // }
 
+// // const innerFunction = outerFunction();
 
-// // // const genertor = addGeneretor(1,5)
-// // // const multiply = genertor.next().value; 
-// // // const mod = genertor.next().value; 
-// // // const subtract = genertor.next().value;
-// // // console.log(multiply);
-// // // console.log(subtract);
+// // innerFunction()
 
-// // function restParmas(...args){
-// //    console.log(args);
-// //    let totel = 0;
-// //    for(const x of args){
-// //       totel += x;
-// //    }
+// function* addGeneretor(a,b){
+//    yield a + b
+//    yield a * b
+//    yield a % b
+//    yield a - b
 
-// //    return totel
-// // }
+// }
 
 
-// // function spread(a,b,c,obj){
-// //   let result  = a.concat(b)
+// const genertor = addGeneretor(1,5)
+// const multiply = genertor.next().value; 
+// const mod = genertor.next().value; 
+// const subtract = genertor.next().value;
+// console.log(multiply);
+// console.log(subtract);
 
-// //   return result;
-// // } const obj ={
-// //   hello : "hey"
-// // }
+// function restParmas(...args){
+//    console.log(args);
+//    let totel = 0;
+//    for(const x of args){
+//       totel += x;
+//    }
 
-// // let a = [1,2,34,5,6] ; b = [4,5,2,5,2,4] ; c = [23,43,2,5]
-// // // console.log(spread(a,b,c,obj));
-
-// // function reverseString(str){
-// //   if (str.length  < 2) {
-// //     return str
-// //   }
-
-
-
-// //   return reverseString(str.substring(1)) + str.charAt(0);
-// // }
+//    return totel
+// }
 
 
-// // function reverseWords(str) {
-// //   // Base case: if the string has no space or is empty, return it
-// //   const lastIndex = str.lastIndexOf(' ');
-// //   console.log('//',lastIndex);
-// //   if (lastIndex === -1) {
-// //       return str;
-// //   }
-// //   // Recursive case: reverse the substring after the last space and concatenate it
-// //   return reverseWords(str.substring(lastIndex + 1)) + ' ' + str.substring(0, lastIndex);
-// // }
+// function spread(a,b,c,obj){
+//   let result  = a.concat(b)
 
-// // // Example usage:
-// // // const originalString = "jishad ali";
-// // // const reversedString = reverseWords(originalString);
-// // // console.log("Original string:", originalString);
-// // // console.log("Reversed string:", reversedString);
+//   return result;
+// } const obj ={
+//   hello : "hey"
+// }
 
+// let a = [1,2,34,5,6] ; b = [4,5,2,5,2,4] ; c = [23,43,2,5]
+// // console.log(spread(a,b,c,obj));
 
-// // //waek set 
-
-// // function WaekSet(){ 
-// //    const value = new WeakSet();
-
-// // const obj1 = {};
-// // const obj2 = {};
-
-// // value.add(obj1);
-// // value.add(obj2);
-
-// //  return  value.has(obj1)
-// // }
-
-// // // console.log(WaekSet());
-
-
-// // //weak map
-// // function weakMap(){
-
-// // const value = new WeakMap();
-
-// // const key1 = {};
-// // const key2 = {};
-
-// // value.set(key1 , "value1");
-// // value.set(key2 , "value2");
-
-// // console.log(value.get(key1))
-// // value.delete(key1)
-// // console.log(value.get(key1))
-// // }
-
-
-// // // (function(){
-// // //   console.log("hello world!!!")
-// // // })();
-
-// // function* myGenerator(){
-// //     yield 1;
-// //     yield 2;
-// //     yield 3;
-// // }
-
-// // const iterator = myGenerator()
-
-// // // console.log(iterator.next());
-// // // console.log(iterator.next());
-// // // console.log(iterator.next());
-// // // console.log(iterator.next());
-
-// // // let count=1;
-// // // do{
-
-// // //   console.log("world" ,count);
-// // //  count ++
-
-// // // }while(count <= 5 )
-
-// // // const promise = new Promise((reslve , reject)=>{
-// // //     if (1===1) {
-// // //       reslve("succes")
-// // //     }else{
-// // //       reject("fail")
-// // //     }
-// // // }).then((res)=>{
-// // //   console.log(res);
-// // // }).catch((err)=>{
-// // //  console.log(err);
-// // // })
-
-
-// // // setImmediate(()=> {
-// // //   console.log("asyncronos");
-// // // })
-
-// // // console.log("syncrons");
+// function reverseString(str){
+//   if (str.length  < 2) {
+//     return str
+//   }
 
 
 
-
-// // let arr = [1,2,3]
-
-// // // let newArr = arr
-// // // newArr.push(4)
-// // // arr.push(5)
+//   return reverseString(str.substring(1)) + str.charAt(0);
+// }
 
 
+// function reverseWords(str) {
+//   // Base case: if the string has no space or is empty, return it
+//   const lastIndex = str.lastIndexOf(' ');
+//   console.log('//',lastIndex);
+//   if (lastIndex === -1) {
+//       return str;
+//   }
+//   // Recursive case: reverse the substring after the last space and concatenate it
+//   return reverseWords(str.substring(lastIndex + 1)) + ' ' + str.substring(0, lastIndex);
+// }
 
+// Example usage:
+// const originalString = "jishad ali";
+// const reversedString = reverseWords(originalString);
+// console.log("Original string:", originalString);
+// console.log("Reversed string:", reversedString);
+
+
+// //waek set 
+
+// function WaekSet(){ 
+//    const value = new WeakSet();
+
+// const obj1 = {};
+// const obj2 = {};
+
+// value.add(obj1);
+// value.add(obj2);
+
+//  return  value.has(obj1)
+// }
+
+// // console.log(WaekSet());
+
+
+// //weak map
+// function weakMap(){
+
+// const value = new WeakMap();
+
+// const key1 = {};
+// const key2 = {};
+
+// value.set(key1 , "value1");
+// value.set(key2 , "value2");
+
+// console.log(value.get(key1))
+// value.delete(key1)
+// console.log(value.get(key1))
+// }
+
+
+// (function(){
+//   console.log("hello world!!!")
+// })();
+
+// function* myGenerator(){
+//     yield 1;
+//     yield 2;
+//     yield 3;
+// }
+
+// const iterator = myGenerator()
+
+// console.log(iterator.next());
+// console.log(iterator.next());
+// console.log(iterator.next());
+// console.log(iterator.next());
+
+// let count=1;
+// do{
+
+//   console.log("world" ,count);
+//  count ++
+
+// }while(count <= 5 )
+
+// const promise = new Promise((reslve , reject)=>{
+//     if (1===1) {
+//       reslve("succes")
+//     }else{
+//       reject("fail")
+//     }
+// }).then((res)=>{
+//   console.log(res);
+// }).catch((err)=>{
+//  console.log(err);
+// })
+
+
+// setImmediate(()=> {
+//   console.log("asyncronos");
+// })
+
+// console.log("syncrons");
+
+
+
+
+// let arr = [1,2,3]
+
+// let newArr = arr
+// newArr.push(4)
+// arr.push(5)
 
 // let Arr = JSON.parse(JSON.stringify(arr))
-// // // Arr.push(5)
-// // // console.log(arr)
-// // // // console.log(newArr)
-// // // console.log(Arr)
 
+// Arr.push(5)
+// console.log(arr)
+// // console.log(newArr)
+// console.log(Arr)
 
-// // const object1  = {
-// //   firsName : "ananth",
-// //   lastName :"ezuza",
-// //   place : 'kochi',
-// //   discrict : "tndia"
-// // }
-// // const object2  = {
-// //   firsName : "ananth",
-// //   lastName :"ezuza",
-// //   place : 'kochi',
-// //   discrict : "tndia"
-// // }
+// const object1  = {
+//   firsName : "ananth",
+//   lastName :"ezuza",
+//   place : 'kochi',
+//   discrict : "tndia"
+// }
 
-// // // function compare(obj1,obj2){
-// // //   key1=Object.keys(obj1)
-// // //   key2=Object.keys(obj2)
+// const object2  = {
+//   firsName : "ananth",
+//   lastName :"ezuza",
+//   place : 'kochi',
+//   discrict : "tndia"
+// }
 
-// // //   if(key1.length!==key2.length){
-// // //     return false
-// // //   }
-// // //   for(let key in obj1){
-// // //     if(obj1[key]!==obj2[key]){
-// // //       return false
-// // //     }
-// // //   }
-// // //   return true
-// // // }
-// // // console.log(compare(object1,object2))
+// function compare(obj1,obj2){
+//   key1=Object.keys(obj1)
+//   key2=Object.keys(obj2)
+
+//   if(key1.length!==key2.length){
+//     return false
+//   }
+//   for(let key in obj1){
+//     if(obj1[key]!==obj2[key]){
+//       return false
+//     }
+//   }
+//   return true
+// }
+// console.log(compare(object1,object2))
 
 
 
@@ -330,40 +327,40 @@
 //    return true
 
 // }
-// // console.log(compare(object1, object2));
+// console.log(compare(object1, object2));
 
 
-// // let arr2=[1,2,3,1,2,3,4,1]
+// let arr2=[1,2,3,1,2,3,4,1]
 
-// // for(let i=0 ;i<arr2.length-1 ; i++){
-// //    for(let j=i+1; j<arr2.length ;j++){
-// //     if (arr2[i] === arr2[j]) {
-// //       arr2.splice(j,1)
-// //       arr2.splice(i,1)
-// //       i--
-// //       j--
-// //     }
-// //    }
-// // }
+// for(let i=0 ;i<arr2.length-1 ; i++){
+//    for(let j=i+1; j<arr2.length ;j++){
+//     if (arr2[i] === arr2[j]) {
+//       arr2.splice(j,1)
+//       arr2.splice(i,1)
+//       i--
+//       j--
+//     }
+//    }
+// }
 
-// // console.log(arr2);
+// console.log(arr2);
 
-// // let newMap = new Map()
+// let newMap = new Map()
 
-// // for(let i=0;i<arr2.length;i++){
-// //   newMap.set(arr2[i],(newMap.get(arr2[i])||0)+1)
-// // }
-// // // console.log(newMap)
+// for(let i=0;i<arr2.length;i++){
+//   newMap.set(arr2[i],(newMap.get(arr2[i])||0)+1)
+// }
+// console.log(newMap)
 
 
-// // // newMap.forEach((key,value)=>{
-// // //   if(key==1){
-// // //     console.log(value,'unique')
-// // //   }else{
-// // //     console.log(value,'dupli')
+// newMap.forEach((key,value)=>{
+//   if(key==1){
+//     console.log(value,'unique')
+//   }else{
+//     console.log(value,'dupli')
 
-// // //   }
-// // // })
+//   }
+// })
 
 
 // // remove elements which start lettter from vowels 
@@ -403,7 +400,6 @@
 //     if (!isNaN(parseInt(num[i]))) {
 //        str += num[i]
 //     }
-
 //  }
 //  return str;
 // }
@@ -427,15 +423,14 @@
 // const person2  = person("sumi" , 45)
 
 
-// //   person1.greet()
-// //   person2.greet()
+//   person1.greet()
+//   person2.greet()
 
-// //    let temp = arr2[0]
-// //    arr2[0] = arr2[arr2.length-1]
-// //    arr2[arr2.length-1] = temp
+//    let temp = arr2[0]
+//    arr2[0] = arr2[arr2.length-1]
+//    arr2[arr2.length-1] = temp
 
-// //     console.log(arr2);
-
+//     console.log(arr2);
 
 //     const arr = [1,4,2,5,3]
 
@@ -489,12 +484,9 @@
 // }
 
 // console.log(random(20));
-
-
-
-
 // flatten array without using inbuild method 
-let arr = [1, 2, 3, [12, 3, [1, 3, 4, 5]]]
+// let arr = [1, 2, 3, [12, 3, [1, 3, 4, 5]]]
+
 function flatArr(arr) {
   let res = []
   for (let i = 0; i < arr.length; i++) {
@@ -504,7 +496,7 @@ function flatArr(arr) {
       res.push(arr[i])
     }
   }
-  return res
+  return res;
 }
 // console.log(flatArr(arr))
 
@@ -520,7 +512,6 @@ function getTomorrowsDate() {
 
 }
 // console.log(getTomorrowsDate());
-
 
 function sumOfNumber(num) {
   let sum = 0;
@@ -551,10 +542,10 @@ function secondLargest(array) {
       secondLargest = array[i];
     }
   }
-  return secondLargest;
+   return secondLargest;
 }
-// console.log(secondLargest(array));
 
+// console.log(secondLargest(array));
 // function removePrime(num){
 
 //     if(num<=1){
@@ -590,12 +581,10 @@ function isPrime(num) {
     }
   }
 
-  return true
+  return true;
 }
 
 let result = arra.filter((num => isPrime(num)))
-
-
 
 
 function countSegment(str) {
@@ -617,7 +606,6 @@ function removeDup(arr) {
 // same elements in an array
 function intersection(arr1, arr2) {
   const set = new Set(arr1);
-
   return arr2.filter(elment => set.has(elment))
 }
 
@@ -646,20 +634,16 @@ function generateOtp() {
 // console.log(generateOtp());
 
 function filterString(arr) {
-
   const strings = arr.filter((val) => typeof (val) === 'string')
-
   return strings
 }
 
 // console.log(filterString([1, 'two', 3, 'four', 5, true, 'six', 7]));
 
-
 const orginalObj = {
   name: 'jishad ali',
   age: '22'
 }
-
 
 
 function spreadObj(spreadObj) {
@@ -682,20 +666,21 @@ function spreadObj(spreadObj) {
 //  console.log("intervell cancelled");
 // },3000);
 
-function nonRepeat(arr) {
-  const unique = [...new Set(arr)];
-  let newArr = [];
-  for (let i = 0; i < unique.length - 1; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      if (unique[i] === arr[j]) {
-        newArr.push(arr[i])
-      }
-    }
-  }
+// function nonRepeat(arr) {
+//   const unique = [...new Set(arr)];
+//   let newArr = [];
+//   for (let i = 0; i < unique.length - 1; i++) {
+//     for (let j = 0; j < arr.length; j++) {
+//       if (unique[i] === arr[j]) {
+//         newArr.push(arr[i])
+//       }
+//     }
+//   }
 
-  return newArr
+//   return newArr
 
-}
+// }
+
 let array = [22, 5, 7, 22, 4, 4]
 // console.log(array);
 // console.log(nonRepeat(array));
@@ -726,15 +711,10 @@ function combination(arr) {
       if (arr[i] + arr[j] === 8) {
         result.push([arr[i], arr[j]])
         console.log("JJJ", arr[j]);
-
       }
-
     }
-
-
   }
   return result
-
 }
 const num = [4, 5, 6, 3, 2, 6, 4];
 
@@ -781,10 +761,9 @@ const generate = endlessEven()
 // }
 
 function longestWord(string) {
+
   let maxCount = 0;
-
   let longestWord = '';
-
   let str = string.split(' ')
 
   for (let i = 0; i < str.length; i++) {
@@ -838,8 +817,7 @@ function reverseString(str) {
 }
 
 console.log(reverseString("jishad ali"));
-
-const arraySum = (arr) => arr.reduce((v, a) => v + a, 0)
+const arraySum = (arr) => arr.reduce((v, a) => v + a, 0);
 console.log(arraySum([1, 2]));
 
 const numbersObject = {
@@ -893,9 +871,9 @@ function binarySearch(arr, value) {
     }
 
     if (value < arr[middle]) {
-         right = middle - 1
+      right = middle - 1
     } else {
-         left = middle + 1
+      left = middle + 1
     }
   }
 
@@ -928,4 +906,5 @@ function carrying(num1) {
 }
 
 const sum = carrying(1)(2)(3)
-const shallow = JSON.parse(JSON.stringify(array))
+// const  deepCopy  = JSON.parse(JSON.stringify(array))
+

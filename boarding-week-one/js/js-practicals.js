@@ -156,62 +156,263 @@ function findLongestStr(str) {
   let map = new Map();
   let string = '';
   for (let i = 0; i < str.length; i++) {
-    map.set(str[i],(map.get(str[i])|| 0)+1)
+    map.set(str[i], (map.get(str[i]) || 0) + 1)
 
   }
 
   let strq = ''
-  let count=0;
-  map.forEach((key , index)=>{
+  let count = 0;
+  map.forEach((key, index) => {
     // console.log(key);
     if (key > count) {
       count = key
       strq = index
     }
-    
+
   });
 
- return strq
+  return strq
 }
 
 // console.log(findLongestStr(str));
 
 let countDown;
 
-function statCountDown(sec){
+function statCountDown(sec) {
 
   let reminingTime = sec;
 
-  countDown = setInterval(()=>{
+  countDown = setInterval(() => {
     console.log(reminingTime);
-    reminingTime --;
+    reminingTime--;
 
     if (reminingTime < 0) {
-       clearInterval(countDown);
-       console.log('finished');
-       
+      clearInterval(countDown);
+      console.log('finished');
+
     }
-  },1000)
-   
+  }, 1000)
+
 }
 
 // statCountDown(5);
 
 
-function printNum(num){
+function printNum(num) {
   let count = 1;
 
   do {
-      console.log("Iteration: " + count);  // This will run at least once
-      count++;
+    console.log("Iteration: " + count);  // This will run at least once
+    count++;
   } while (count <= num);
 }
 
-printNum(10);
+// printNum(10);
 
 
-function sample(value = 'dev'){
+function sample(value = 'dev') {
   console.log('hello ' + value);
 }
 
-sample();
+// sample();
+
+function sumOfDigits(number) {
+  let sum = 0;
+
+  while (number > 0) {
+    sum += number % 10; // Get the last digit
+    number = Math.floor(number / 10); // Remove the last digit
+  }
+
+  return sum;
+}
+
+const number = 738367;
+const result = sumOfDigits(number);
+// console.log(result); // Output: 34
+
+
+function findlargesWord(str) {
+  let word;
+  let maxCount = 0;
+  let split = str.split(' ');
+  for (let i = 0; i < split.length; i++) {
+    if (split[i].length > maxCount) {
+      maxCount = split[i].length;
+      word = split[i]
+    }
+  }
+  return word
+}
+
+const sentence = 'versatile programming language that language often poses challenging programming'
+console.log(findlargesWord(sentence));
+
+function removeDup(str) {
+  const split = str.split(' ');
+  const arr = [...new Set(split)]
+  return arr
+}
+console.log(removeDup(sentence));
+
+function secondLargest(arr) {
+
+  let largest = -Infinity;
+  let secondLargest = -Infinity;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > largest) {
+      secondLargest = largest;
+      largest = arr[i]
+    } else if (arr[i] > secondLargest && arr[i] < largest) {
+      secondLargest = arr[i]
+    }
+  }
+
+  return secondLargest;
+}
+
+console.log(secondLargest([4, 3, 66, 3, 22, 5, 10]));
+
+// // remove elements which start lettter from vowels 
+const arar = ['a', 'e', 'i', 'o', 'u'];
+const words = ['abhi', 'jishad', "ashna", 'irfan']
+
+function removeVowels(words, vowels) {
+  return words.filter((word) => !vowels.includes(word[0]))
+}
+
+console.log(removeVowels(words, arar));
+
+const object1 = {
+  firsName: "ananth",
+  lastName: "ezuza",
+  place: 'kochi',
+  discrict: "tndia"
+}
+
+const object2 = {
+  firsName: "ananth",
+  lastName: "ezuza",
+  place: 'kochi',
+  discrict: "tndia"
+}
+
+
+function compare(obj1, obj2) {
+
+  key1 = Object.keys(obj1)
+  key2 = Object.keys(obj2)
+
+  if (key1.length !== key2.length) {
+    return false
+  }
+
+  for (let key in obj1) {
+    if (obj1[key] !== obj2[key]) {
+      return false
+    }
+
+    return true;
+  }
+}
+
+// console.log(compare(object1 , object2));
+
+const num = '-+ 89 -[]4232113';
+
+function extractNum(num) {
+  let str = '';
+  for (let i = 0; i < num.length; i++) {
+    if (!isNaN(parseInt(num[i]))) {
+      str += num[i]
+    }
+  }
+  return str
+}
+
+console.log(extractNum(num));
+
+function factory(name, age, place) {
+  return {
+    name: name,
+    age: age,
+    place: place,
+    greet: function () {
+      console.log('hello iam ' + this.name);
+    }
+  }
+}
+
+const person1 = factory('jishad', 76, 'mampuram');
+person1.greet()
+
+function generateRamdom() {
+  return Math.floor(Math.random() * 1000)
+}
+console.log(generateRamdom());
+
+
+function getTomorowDate() {
+  let tommorow = new Date();
+  tommorow.setDate(tommorow.getDate() + 1)
+  return tommorow.toDateString()
+}
+
+console.log(getTomorowDate());
+
+function sumDigit(num) {
+
+  let sum = 0;
+
+  while (num > 0) {
+
+    let digit = num % 10
+
+    sum += digit;
+
+    num = Math.floor(num / 10);
+  }
+
+  return sum
+}
+
+// console.log("e", sumDigit(12));
+
+function filterString(arr) {
+  return arr.filter((value) => typeof (value) === 'string');
+}
+
+// console.log(filterString([1, 'two', 3, 'four', 5, true, 'six', 7]));
+
+const nums = [4, 5, 6, 3, 2, 6, 4];
+
+function mostRepeating(num) {
+  const map = new Map();
+
+  for (let i = 0; i < num.length; i++) {
+      map.set(num[i] , (map.get(num[i]) || 0 )+1)
+  }
+
+  console.log(map);
+
+  let count = 0;
+   for(let v of map){
+     if ( v[1] > count ) {
+      return v[0] 
+     }
+   }
+}
+
+// console.log(mostRepeating(nums));
+// map.set(str[i], (map.get(str[i]) || 0) + 1)
+
+const originalArray = [1, 2, [3, 4]];
+
+const shallowCopy = [...originalArray]
+shallowCopy[2][0] = 99;
+console.log(originalArray);
+
+const deepCopy = JSON.parse(JSON.stringify(originalArray))
+deepCopy[2] = 99;
+console.log(originalArray);
