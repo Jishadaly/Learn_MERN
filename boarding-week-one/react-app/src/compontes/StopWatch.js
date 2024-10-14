@@ -20,6 +20,7 @@ export default function StopWatch() {
         }
 
     }, [isActive, seconds]);
+    
     return (
         <div style={{
             display: 'flex',

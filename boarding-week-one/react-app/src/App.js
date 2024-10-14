@@ -7,12 +7,13 @@ import Login from "./compontes/Login";
 import StopWatch from "./compontes/StopWatch";
 import ErrorBoundary from "./utils/ErrorBountery";
 import Home from "./compontes/Home";
+import TodoApp from "./compontes/Todo";
 
 
 function App() {
   return (
     <div className="App">
-      <ErrorBoundary>
+      {/* <ErrorBoundary>
         <Routes>
           <Route path="/" element = {<Home/>}/>
           <Route path="counter" element={<Counter />} />
@@ -22,7 +23,8 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="stopWatch" element={<StopWatch />} />
         </Routes>
-      </ErrorBoundary>
+      </ErrorBoundary> */}
+      <TodoApp/>
     </div>
   );
 }

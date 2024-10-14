@@ -5,15 +5,14 @@ export default function withAuth(WrappedComponent) {
     return () => {
         const navigate = useNavigate();
 
-        useEffect(()=>{ 
+        useEffect(() => {
             const condetion = false;
             if (!condetion) {
                 alert("You are not authorized to view this page!");
                 navigate("/login");
             }
-        },[navigate])
+        }, [navigate])
 
-        return <WrappedComponent/>
+        return <WrappedComponent />
     }
-    
 }

@@ -6,7 +6,7 @@ export default function useToggle(initalValue = false) {
     const toggle = () => {
         setValue((prev)=> !prev);
     }
-
+    
     return {
         value,
         toggle

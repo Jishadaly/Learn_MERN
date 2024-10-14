@@ -6,7 +6,7 @@ export default function FormComponents() {
     const emailInput = useFormInput('');
 
     const handleSubmit = (e) => {
-
+        
         e.preventDefault();
         console.log(nameInput.value);
         console.log(emailInput.value);
