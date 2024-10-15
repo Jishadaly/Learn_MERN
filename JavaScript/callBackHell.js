@@ -20,84 +20,119 @@
 // })
 
 
-// function asyncTask1(callback){
-//   setTimeout(function(){
-//       console.log('async 1');
-//       callback()
-//   },1000)
+function asyncTask1(callback) {
+  setTimeout(() =>{
+    console.log('async 1');
+    callback();
+  }, 1000);
+}
+
+function asyncTask2(callback) {
+  setTimeout(() =>{
+    console.log('async 2');
+    callback();
+  }, 2000);
+}
+
+function asyncTask3(callback) {
+  setTimeout(()=> {
+    console.log('async 3');
+    callback();
+  }, 3000);
+}
+
+// Chaining the async tasks using callbacks
+// asyncTask1(function() {
+//   asyncTask2(function() {
+//     asyncTask3(function() {
+//       console.log('ended');
+//     });
+//   });
+// });
+
+
+
+
+
+// async function main(){
+//   try{
+//    await asyncTask1();
+//    await asyncTask2();asyncTask1()
+  // .then(()=> asyncTask2())
+  // .then(()=> asyncTask3 ())
+  // .then(()=> {
+  //   console.log('ended');
+  // })
+  // .catch((error)=>{
+  //   console.error('erroo' , error);
+  // })
+//    await asyncTask3();
+//   } catch(error){
+//       console.error('errr',error)
+//   }
 // }
 
-
-// function asyncTask2(callback){
-//   setTimeout(function(){
-//       console.log('async 2');
-//       callback()
-//   },2000)
-// }
+// main();
 
 
-// function asyncTask3(callback){
-//   setTimeout(function(){
-//       callback()
-//   },3000)
-// }
+function firstTask(){
+  return new  Promise((res)=>{
+    setTimeout(()=>{ 
+     res('task 1 is completed ')
+   },1000)
+  })
+}
 
-
-// asyncTask1(function(){
-//   asyncTask2(function(){
-//       asyncTask3(function(){
-//           console.log('ended');
-//       })
-//   })
-// })
-
-
-function asyncTask1(){
-  return new Promise((res, rej)=>{
+function secondTask(){
+  return new Promise((res , rej)=>{
     setTimeout(()=>{
-      console.log('async 1');
-      res()
+      rej('task tow is complted')
     },1000)
   })
 }
 
-function asyncTask2(){
-  return new Promise((res, rej)=>{
+function thirdTask(){
+  return new Promise((res)=>{
     setTimeout(()=>{
-      console.log('async 2');
-      res()
-    },2000)
+      res('task 3 is completed ')
+    },1000)
   })
 }
 
-function asyncTask3(){
-  return new Promise((res, rej)=>{
-    setTimeout(()=>{
-      console.log('async 3');
-      res()
-    },3000)
-  })
+// firstTask()
+//   .then((data)=> {
+//     console.log(data);
+//    return secondTask()
+//   })
+//   .then((data)=>{
+//     console.log(data)
+//    return thirdTask()
+//   })
+//   .then((data)=>{
+//     console.log(data)
+//   })
+//   .then(()=>{
+//     console.log('completed')
+//   })
+//   .catch((err)=>{
+//     console.log(err)
+//   });
+ 
+async function handleAsyncFun(){
+   try{
+    console.log(await firstTask())
+    console.log(await secondTask())
+    console.log(await thirdTask())
+    console.log('complered')
+   }catch(err){
+    console.log(err);
+   }
 }
 
+// handleAsyncFun();
 
-// asyncTask1()
-//   .then(()=> asyncTask2())
-//   .then(()=> asyncTask3 ())
-//   .then(()=> {
-//     console.log('ended');
-//   })
-//   .catch((error)=>{
-//     console.error('erroo' , error);
-//   })
-
-async function main(){
-  try{
-   await asyncTask1();
-   await asyncTask2();
-   await asyncTask3();
-  } catch(error){
-      console.error('errr',error)
-  }
-}
-
-main();
+Promise.any([firstTask() , secondTask() , thirdTask()]).then((values)=>{
+  console.log('res : ',values);
+}).catch((err)=>{
+  console.log('Errorr occured',err);
+})

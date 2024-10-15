@@ -157,7 +157,6 @@ function findLongestStr(str) {
   let string = '';
   for (let i = 0; i < str.length; i++) {
     map.set(str[i], (map.get(str[i]) || 0) + 1)
-
   }
 
   let strq = ''
@@ -189,7 +188,6 @@ function statCountDown(sec) {
     if (reminingTime < 0) {
       clearInterval(countDown);
       console.log('finished');
-
     }
   }, 1000)
 
@@ -212,7 +210,7 @@ function printNum(num) {
 
 function sample(value = 'dev') {
   console.log('hello ' + value);
-}
+} 
 
 // sample();
 
@@ -276,7 +274,7 @@ console.log(secondLargest([4, 3, 66, 3, 22, 5, 10]));
 
 // // remove elements which start lettter from vowels 
 const arar = ['a', 'e', 'i', 'o', 'u'];
-const words = ['abhi', 'jishad', "ashna", 'irfan']
+const words = ['abhi', 'jishad', "ashna", 'hanna                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ']
 
 function removeVowels(words, vowels) {
   return words.filter((word) => !vowels.includes(word[0]))
@@ -391,17 +389,19 @@ function mostRepeating(num) {
   const map = new Map();
 
   for (let i = 0; i < num.length; i++) {
-      map.set(num[i] , (map.get(num[i]) || 0 )+1)
+    map.set(num[i], (map.get(num[i]) || 0) + 1)
   }
 
   console.log(map);
 
   let count = 0;
-   for(let v of map){
-     if ( v[1] > count ) {
-      return v[0] 
-     }
-   }
+
+  for (let v of map) {
+    if (v[1] > count) {
+      return v[0]
+    }
+  }
+
 }
 
 // console.log(mostRepeating(nums));

@@ -26,7 +26,7 @@
 //             }
 //         }
 //     }
-    
+
 //     get(key) {
 //         let index = this.hash(key)
 //         const bucket = this.table[index];
@@ -59,67 +59,65 @@
 // tabel.set('name', 'jishad');
 // console.log(tabel.get('name'));
 
-
-
-
-class HashTable{
-    constructor(size){
+class HashTable {
+    constructor(size) {
         this.table = new Array(50)
-        this.size = size 
+        this.size = size
     }
-    hash(key){
+    
+    hash(key) {
         let totel;
 
-        for(let i =0 ; i<key.length;i++){
+        for (let i = 0; i < key.length; i++){
             totel += key.charCodeAt(i);
         }
 
         return totel % this.size;
     }
 
-    set(key , value){
+    set(key, value) {
         const index = this.hash(key);
 
         const bucket = this.table[index];
         if (!bucket) {
-            this.table[index] = [[key , value]]
-        }else{
-            const samekeyItem = bucket.find((val)=> val[0] === key )
+            this.table[index] = [[key, value]]
+        } else {
+            const samekeyItem = bucket.find((val) => val[0] === key)
 
             if (samekeyItem) {
                 samekeyItem[1] = value
-            }else{
-                bucket.push([key , value])
+            } else {
+                bucket.push([key, value])
             }
         }
     }
 
-    get(key){
+    get(key) {
         const index = this.hash(key)
         const bucket = this.table[index];
 
         if (!bucket) {
             return null
-        }else{
-            const sameKeyItem = bucket.find((val)=> val[0] == key)
+        } else {
+            const sameKeyItem = bucket.find((val) => val[0] == key)
             if (sameKeyItem) {
                 return sameKeyItem[1];
-            }else{
+            } else {
                 return null
             }
         }
     }
 
-    remove(key){
+    remove(key) {
         const index = this.hash(key)
         const bucket = this.table[index];
 
         if (!bucket) {
             return null
-        }else{
-            const sameKeyItem = bucket.find((val)=> val[0] == key)
+        } else {
+            const sameKeyItem = bucket.find((val) => val[0] == key)
             if (sameKeyItem) {
-                bucket.splice(bucket.indexOf(sameKeyItem),1)
+                bucket.splice(bucket.indexOf(sameKeyItem), 1)
             }
         }
     }
@@ -128,8 +126,8 @@ class HashTable{
 
 const tabel = new HashTable(50)
 
-tabel.set('jishad' , {
-    address : 'pulikaparambil house , mampuram'
+tabel.set('jishad', {
+    address: 'pulikaparambil house , mampuram'
 });
 
 

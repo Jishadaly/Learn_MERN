@@ -371,9 +371,7 @@ class LinkedList{
             let curr = this.head;
 
             while(curr.next){
-
                 curr = curr.next 
-
             }
             curr.next = node
         }
@@ -420,8 +418,6 @@ class LinkedList{
         let next = curr.next;
 
         curr.next = prev;
-
-
         this.reverseRec(next , curr)
     }
 
@@ -439,13 +435,12 @@ class LinkedList{
         }
     }
 }
+const list = new LinkedList();
 
-const list =  new LinkedList();
-
-list.appent(37)
-list.appent(47)
-list.appent(374)
-list.appent(22)
-list.prepend(3)
-list.reverseRec()
-list.print()
+list.appent(37);
+list.appent(47);
+list.appent(374);
+list.appent(22);
+list.prepend(3);
+list.reverseRec();
+list.print();

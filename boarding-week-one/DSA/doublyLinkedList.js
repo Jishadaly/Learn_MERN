@@ -2,7 +2,7 @@ class Node {
     constructor(value) {
         this.value =
             this.next = null;
-        this.prev = null;
+            this.prev = null;
     }
 }
 
@@ -43,6 +43,6 @@ class doublyList {
         }
         this.size ++
     }
-    
+
 }
 

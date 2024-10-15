@@ -245,7 +245,7 @@
 // }while(count <= 5 )
 
 // const promise = new Promise((reslve , reject)=>{
-//     if (1===1) {
+//     if (1 ===1) {
 //       reslve("succes")
 //     }else{
 //       reject("fail")
@@ -262,8 +262,6 @@
 // })
 
 // console.log("syncrons");
-
-
 
 
 // let arr = [1,2,3]
@@ -542,7 +540,7 @@ function secondLargest(array) {
       secondLargest = array[i];
     }
   }
-   return secondLargest;
+  return secondLargest;
 }
 
 // console.log(secondLargest(array));
@@ -580,23 +578,19 @@ function isPrime(num) {
       return false
     }
   }
-
   return true;
 }
 
 let result = arra.filter((num => isPrime(num)))
 
-
 function countSegment(str) {
   return str.split(' ')
-
 }
 
 let str = "Hello, my name is John"
 // console.log(countSegment(str));
 
 // console.log(arra);
-
 
 function removeDup(arr) {
   return [...new Set(arr)]
@@ -610,7 +604,6 @@ function intersection(arr1, arr2) {
 }
 
 // remove all dupicate elements
-
 console.log(arra);
 function removeAllDup(arr) {
 
@@ -627,7 +620,6 @@ function removeAllDup(arr) {
 function generateOtp() {
 
   let otp = Math.floor(Math.random() * 1000)
-
   return otp.toString()
 }
 
@@ -644,7 +636,6 @@ const orginalObj = {
   name: 'jishad ali',
   age: '22'
 }
-
 
 function spreadObj(spreadObj) {
   const updateObject = {
@@ -706,7 +697,7 @@ let numbers = [-1, 2, 5, 6, 2, 9, -1, 6, 5, -1, 3]
 function combination(arr) {
   let result = []
   for (let i = 0; i < arr.length - 1; i++) {
-    console.log("IIII", arr[i]);
+
     for (let j = i + 1; j < arr.length; j++) {
       if (arr[i] + arr[j] === 8) {
         result.push([arr[i], arr[j]])
@@ -714,6 +705,7 @@ function combination(arr) {
       }
     }
   }
+
   return result
 }
 const num = [4, 5, 6, 3, 2, 6, 4];
@@ -805,7 +797,7 @@ function longestSubString(str) {
   return word
 }
 
-console.log(longestSubString("ggiirrdffdgjjjjssssssss"));
+console.log("longest : ", longestSubString("ggiirrdffdgjjjjssssssss"));
 
 
 function reverseString(str) {
@@ -894,7 +886,7 @@ function* sampleGen(num) {
 }
 
 const iterator = sampleGen(10);
-// console.log(iterator.next());
+console.log(iterator.next().value);
 
 // a function that take multiple argument that tramsformed into a series of functions called carriying..
 function carrying(num1) {

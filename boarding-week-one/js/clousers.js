@@ -1,17 +1,16 @@
 function a(){
     var b = 10;
 
-    function fun(str){
-        console.log(b,c,str)
+    function fun(){
+        console.log(b)
     }
 
     b=20;
     return fun;
 }
 
-b = 30;
-let c = 1000;
-// a()('jishad')
+const fun = a()
+fun()
 
 
 function multiply(a){
@@ -23,4 +22,4 @@ function multiply(a){
 }
 
 const result = multiply(10)(20)(30);
-console.log(result);
+// console.log(result);

@@ -67,7 +67,7 @@ function countZeros(arr) {
 
     for (let i = 0; i < arr.length; i++) {
         if (Array.isArray(arr[i])) {
-           count = count + countZeros(arr[i]);
+            count = count + countZeros(arr[i]);
         } else {
             if (arr[i] == 0) {
                 console.log(arr[i]);
@@ -95,7 +95,6 @@ function reveres(arr) {
 
         reversedArray.push();
     }
-
     return reversedArray;
 }
 
@@ -103,29 +102,29 @@ const arr = [601, 587]
 // const result = reveres(arr);
 // console.log(result);
 
-const word = 'tytttuup';    
+const word = 'tytttuup';
 
 // output should be ttt
 
-function findLongestSub(str){
+function findLongestSub(str) {
     let count = 0;
     let longest = '';
 
-    for(let i=0;i<str.length ;i++){
+    for (let i = 0; i < str.length; i++) {
         let n = 0;
-        for(let j=0;j<str.length ; j++){
-            if ( i !==j && str[i] === str[j]) {
+        for (let j = 0; j < str.length; j++) {
+            if (i !== j && str[i] === str[j]) {
                 longest = str[j]
-                n ++
+                n++
             }
         }
-        
-        if (n >count) {
-            count 
+
+        if (n > count) {
+            count;
         }
 
     }
+    return longest;
 }
 
-// console.log(findLongestSub(word));
-
+console.log(findLongestSub(word));

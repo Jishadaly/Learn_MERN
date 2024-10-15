@@ -1,6 +1,6 @@
 const person1 = {
-    fullName : function(palce) {
-      return this.firstName + " " + this.lastName + palce
+    fullName : function(place) {
+      return this.firstName + " " + this.lastName + place
     }
 }
 
