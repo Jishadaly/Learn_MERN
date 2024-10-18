@@ -391,7 +391,7 @@ class LinkedList {
      curr = next;
 
    }
-  this.head = prev;
+    this.head = prev;
   }
 }
 
