@@ -40,21 +40,47 @@ const arr = [ 3,-1 ,42, 62];
 //     return arr
 // }
 
-function bubbleSort(arr){
+// function bubbleSort(arr){
 
-    let swapped ;
+//     let swapped ;
+
+//     do{
+//          swapped  = false
+//          for(let i=0 ; i<arr.length ;i++){
+//             if (arr[i] > arr[i+1]) {
+//                 let temp = arr[i]
+//                 arr[i] = arr[i+1];
+//                 arr[i+1] = temp 
+//             } 
+//          }
+//     }while(swapped);
+
+//     return arr
+// }
+// console.log(bubbleSort(arr));
+
+
+function swap(arr , i , j){
+    [arr[i] , arr[j] ]= [arr[j] , arr[i] ]
+}
+
+function bubbleSort(arr){
+    let swapped;
 
     do{
-         swapped  = false
-         for(let i=0 ; i<arr.length ;i++){
-            if (arr[i] > arr[i+1]) {
-                let temp = arr[i]
-                arr[i] = arr[i+1];
-                arr[i+1] = temp 
-            } 
-         }
-    }while(swapped);
+        swapped = false
 
-    return arr
+        for(let i=0; i<arr.length; i++){
+            if(arr[i] > arr[i+1]){
+                swap(arr , i, i+1)
+                swapped = true
+            }
+        }
+
+    }while(swapped)
+
+        return arr
 }
-console.log(bubbleSort(arr));
+
+// console.log(bubbleSort(arr));
+

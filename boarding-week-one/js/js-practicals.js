@@ -1,4 +1,3 @@
-
 [
   {
     "id": 12345,
@@ -196,14 +195,14 @@ function statCountDown(sec) {
 // statCountDown(5);
 
 
-function printNum(num) {
-  let count = 1;
+// function printNum(num) {
+//   let count = 1;
 
-  do {
-    console.log("Iteration: " + count);  // This will run at least once
-    count++;
-  } while (count <= num);
-}
+//   do {
+//     console.log("Iteration: " + count);  // This will run at least once
+//     count++;
+//   } while (count <= num);
+// }
 
 // printNum(10);
 
@@ -244,14 +243,14 @@ function findlargesWord(str) {
 }
 
 const sentence = 'versatile programming language that language often poses challenging programming'
-console.log(findlargesWord(sentence));
+// console.log(findlargesWord(sentence));
 
 function removeDup(str) {
   const split = str.split(' ');
   const arr = [...new Set(split)]
   return arr
 }
-console.log(removeDup(sentence));
+// console.log(removeDup(sentence));
 
 function secondLargest(arr) {
 
@@ -270,7 +269,7 @@ function secondLargest(arr) {
   return secondLargest;
 }
 
-console.log(secondLargest([4, 3, 66, 3, 22, 5, 10]));
+// console.log(secondLargest([4, 3, 66, 3, 22, 5, 10]));
 
 // // remove elements which start lettter from vowels 
 const arar = ['a', 'e', 'i', 'o', 'u'];
@@ -280,7 +279,7 @@ function removeVowels(words, vowels) {
   return words.filter((word) => !vowels.includes(word[0]))
 }
 
-console.log(removeVowels(words, arar));
+// console.log(removeVowels(words, arar));
 
 const object1 = {
   firsName: "ananth",
@@ -329,7 +328,7 @@ function extractNum(num) {
   return str
 }
 
-console.log(extractNum(num));
+// console.log(extractNum(num));
 
 function factory(name, age, place) {
   return {
@@ -343,12 +342,12 @@ function factory(name, age, place) {
 }
 
 const person1 = factory('jishad', 76, 'mampuram');
-person1.greet()
+// person1.greet()
 
 function generateRamdom() {
   return Math.floor(Math.random() * 1000)
 }
-console.log(generateRamdom());
+// console.log(generateRamdom());
 
 
 function getTomorowDate() {
@@ -357,7 +356,7 @@ function getTomorowDate() {
   return tommorow.toDateString()
 }
 
-console.log(getTomorowDate());
+// console.log(getTomorowDate());
 
 function sumDigit(num) {
 
@@ -411,8 +410,77 @@ const originalArray = [1, 2, [3, 4]];
 
 const shallowCopy = [...originalArray]
 shallowCopy[2][0] = 99;
-console.log(originalArray);
+// console.log(originalArray);
 
 const deepCopy = JSON.parse(JSON.stringify(originalArray))
 deepCopy[2] = 99;
-console.log(originalArray);
+// console.log(originalArray);
+
+function validParanthesis(s){
+    const stack = []
+
+    const matchingBrackets = {
+        '(' : ')',
+        '{' : '}',
+        '[' : ']'
+    }
+
+    for(let char of s ){
+      console.log(matchingBrackets[char]);
+      
+       if (matchingBrackets[char]) {
+          stack.push(char)
+       }
+
+      else if (char === ')' || char === '}' || char === ']') {
+          if (!stack.length || matchingBrackets[stack.pop()] !== char ) {
+              return false
+          }
+       }
+    }
+
+    return stack.length === 0;
+    
+}
+// const res = validParanthesis('[{}]({})[{}]');
+
+// console.log(res);
+
+function binarySearch(arr , target){
+    let leftIndex = 0
+    let rightIndex = arr.length - 1;
+
+    while(leftIndex <= rightIndex){
+      let mid = Math.floor((leftIndex + rightIndex)/2);
+
+      if (target == arr[mid]) {
+        return mid + 1
+      }
+      if (target < arr[mid]) {
+          rightIndex = mid - 1
+      }else{
+        leftIndex = mid + 1
+      }
+    }
+}
+// console.log(binarySearch(['abhi',  'ashna' ,'jishad' , 'nayana'] , 'jishad'))
+
+function sumOfnum(num){
+   let sum = 0;
+
+   while(num > 0){
+
+     let digit = num % 10;
+
+     sum += digit
+
+     num = Math.floor(num / 10);
+   }
+
+   return sum;
+
+}
+// console.log(sumOfnum(3738))
+
+const samFun = eval('(function fun(){ return 10; })')
+

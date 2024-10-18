@@ -41,6 +41,7 @@ function fibonacci(n) {
 
     return fibonacci(n - 1) + fibonacci(n - 2)
 }
+
 // console.log(fibonacci(10));
 
 // function reverseString(str) {
@@ -115,7 +116,7 @@ function fact(num) {
 
 // console.log(fact(5))
 
-function palindrome(str){
+function palindrome(str) {
     if (str.length < 1) {
         return true
     }
@@ -124,21 +125,18 @@ function palindrome(str){
         return false
     }
 
-    return palindrome(str.slice(1,-1))
+    return palindrome(str.slice(1, -1))
 }
 
 // console.log(palindrome('malayalam'))
 
-function sumArray(arr){
+function sumArray(arr) {
 
     if (arr.length <= 0) {
         return 0
     }
-
     console.log(arr);
-    
-    return  arr[0] + sumArray(arr.splice(1))
-    
+    return arr[0] + sumArray(arr.splice(1))
 }
 
 // console.log(sumArray([2,3 , 4,3,5,3]))

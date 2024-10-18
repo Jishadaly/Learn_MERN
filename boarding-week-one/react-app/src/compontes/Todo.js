@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 const TodoApp = () => {
   const [todos, setTodos] = useState([]); // To store the list of todos
   const [inputValue, setInputValue] = useState(''); // For the input field
+  const [searchValue, setSearchVal] = useState('')
 
   // Function to handle adding a new task
   const handleAddTodo = () => {
-    if (inputValue.trim() !== '') {    
-        
-            setTodos([...todos, inputValue]);
-            setInputValue(''); // Clear the input after adding.
-}
+    if (inputValue.trim() !== '') {
+      console.log('ff');
+      
+      if (!todos.includes(inputValue)) {
+        setTodos([...todos, inputValue]);
+        setInputValue('');
+      } else {
+        alert('exist in list')
+      }
+
+    }
   };
+
+  const filterdTodos = todos.filter((todo)=> { console.log('rerender');
+  return todo.toLowerCase().includes(searchValue.toLowerCase())} )
+  
 
   // Function to remove a task
   const handleRemoveTodo = (indexToRemove) => {
@@ -33,14 +44,27 @@ const TodoApp = () => {
         <button onClick={handleAddTodo}>Add</button>
       </div>
 
-      <ul className="todo-list">
-        {todos.map((todo, index) => (
-          <li key={index} className="todo-item">
-            {todo}
-            <button className="remove-btn" onClick={() => handleRemoveTodo(index)}>Remove</button>
-          </li>
-        ))}
-      </ul>
+      <div className="todo-input">
+        <input
+          type="text"
+          placeholder="search"
+          value={searchValue}
+          onChange={(e) => setSearchVal(e.target.value)}
+        />
+
+        {/* <button onClick={handleSearch}>search</button> */}
+
+        <ul className="todo-list">
+          {filterdTodos.map((todo, index) => (
+            <li key={index} className="todo-item">
+              {todo}
+              <button className="remove-btn" onClick={() => handleRemoveTodo(index)}>Remove</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <h1>Serched values</h1>
+
     </div>
   );
 };
