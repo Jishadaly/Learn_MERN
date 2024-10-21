@@ -138,4 +138,5 @@ function quickSort(arr) {
 
     return [...quickSort(left), pivot, ...quickSort(right)]
 }
-// console.log(quickSort([2, 1, 5, 2, 10]));
+
+console.log(quickSort([2, 1, 5, 2, 10]));
