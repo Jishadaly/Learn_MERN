@@ -348,21 +348,23 @@
 // list.print();
 
 class Node{
-
     constructor(value){
         this.value = value
         this.next = null
     }
 }
 
-class LinkedList{
+class LinkedList {
+
     constructor(){
         this.head = null;
         this.size = 0;
     }
+
     isEmpty(){
         return this.size === 0
     }
+
     appent(value){
         const node = new Node(value)
         if (this.isEmpty()) {
@@ -375,7 +377,7 @@ class LinkedList{
             }
             curr.next = node
         }
-        this.size ++
+        this.size ++;
     }
 
     prepend(value){
@@ -386,26 +388,26 @@ class LinkedList{
             node.next = this.head
             this.head = node
         }
-        this.size ++ 
+        
+        this.size ++;
     }
 
     reverse(){
-        
         if (this.isEmpty()) {
          console.log('empty');
         }else{
             let curr = this.head;
-            let prev  = null
+            let prev  = null;
 
             while(curr){
-                let next = curr.next
+                let next = curr.next;
 
-                curr.next = prev
-                prev =  curr
-                curr = next
+                curr.next = prev;
+                prev =  curr;
+                curr = next;
             }
 
-            this.head = prev
+            this.head = prev;
         }
     }
 
@@ -416,8 +418,7 @@ class LinkedList{
         }
 
         let next = curr.next;
-
-        curr.next = prev;
+        curr.next = prev;  ;
         this.reverseRec(next , curr)
     }
 
@@ -426,21 +427,21 @@ class LinkedList{
             console.log('empty');
             return     
         }
-
         let curr =  this.head;
         while(curr){
             console.log(curr.value);
-            
             curr = curr.next;
         }
     }
 }
+
+
 const list = new LinkedList();
 
-list.appent(37);
-list.appent(47);
-list.appent(374);
-list.appent(22);
-list.prepend(3);
+list.appent(37);  
+list.appent(47);  
+list.appent(374); 
+list.appent(22);  
+list.prepend(3);  
 list.reverseRec();
-list.print();
+list.print();      

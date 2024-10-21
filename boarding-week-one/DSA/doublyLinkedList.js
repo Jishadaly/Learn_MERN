@@ -1,16 +1,17 @@
 class Node {
     constructor(value) {
-        this.value =
-            this.next = null;
-            this.prev = null;
+        this.value = value;
+        this.next = null;  
+        this.prev = null;   
     }
 }
 
 class doublyList {
+
     constructor() {
         this.head = null;
         this.tail = null;
-        this.size = 0;
+        this.size = 0;    
     }
 
     isEmpty() {
@@ -18,6 +19,7 @@ class doublyList {
     }
 
     prepend(value) {
+
         const node = new Node(value)
         if (this.isEmpty) {
             this.head = value
@@ -25,10 +27,10 @@ class doublyList {
         } else {
             node.next = this.head;
             this.head.prev = node;
-            this.head = node;
+            this.head = node;     
         }
-        this.size++;
 
+        this.size++;
     }
 
     append(value) {
@@ -41,8 +43,10 @@ class doublyList {
             node.prev = this.tail
             this.tail = node
         }
-        this.size ++
+        
+        this.size++;
     }
 
-}
 
+
+}

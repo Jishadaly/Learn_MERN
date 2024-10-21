@@ -63,13 +63,14 @@ function reverseString(str) {
 
 function printEven(n) {
     if (n <= 0) {
-        return 1
+        return 1;
     }
     if (n % 2 === 0) {
         return printEven(n - 1)
     }
-
+    
 }
+
 
 // console.log(printEven(10));
 
@@ -138,4 +139,11 @@ function sumArray(arr) {
     return arr[0] + sumArray(arr.splice(1))
 }
 
-// console.log(sumArray([2,3 , 4,3,5,3]))
+ console.log(sumArray([2,3 , 4,3,5,3]))
+
+
+function samp(nums) {
+    return nums
+}
+
+console.log(samp(5));
