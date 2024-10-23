@@ -126,28 +126,30 @@
 //     return [...sortedArr, ...leftArr, ...rightArr]
 // }
 
-function mergeSort(arr){
-    if(arr.length < 2) return arr
 
-    let mid = Math.floor(arr.length / 2)
-    let leftArr = arr.slice(0,mid)
-    let rightArr =  arr.slice(mid)
+  function mergeSort(arr){
+      if( arr.length < 2 ){
+          return arr
+      }
 
-    return merge(mergeSort(leftArr) , mergeSort(rightArr))
-}
+      let mid = Math.floor(arr.length/2)
+      let left = arr.slice(mid)
+      let right = arr.slice( 0,mid )
 
-function merge(leftArr , rightArr){
+      return merge(mergeSort(left) , mergeSort(right))
+  }
+
+function merge(left , right) {
     let sortedArr = []
-
-    while( leftArr.length && rightArr.length ){
-        if ( leftArr[0] <=  rightArr[0] ) {
-            sortedArr.push(leftArr.shift())
+    while(left.length && right.length){
+        if(left[0] < right[0]){
+            sortedArr.push(left.shift())
         }else{
-            sortedArr.push(rightArr.shift())
+            sortedArr.push(right.shift())
         }
     }
 
-    return [...sortedArr , ...leftArr ,...rightArr]
+    return [...sortedArr , ...left , ...right ]
 }
 
-console.log(mergeSort([5, 3, 6, 2, 5, 7, 982, 2]));
+console.log(mergeSort([4,2,5,2,5,2,5,2]))

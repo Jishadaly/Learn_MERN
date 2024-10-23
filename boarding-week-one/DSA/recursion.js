@@ -62,15 +62,13 @@ function reverseString(str) {
 // console.log(reverseString('nayana'));
 
 function printEven(n) {
-    if (n <= 0) {
+    if ( n <= 0 ) {
         return 1;
     }
-    if (n % 2 === 0) {
+    if ( n % 2 === 0 ) {
         return printEven(n - 1)
     }
-    
 }
-
 
 // console.log(printEven(10));
 
@@ -140,10 +138,3 @@ function sumArray(arr) {
 }
 
  console.log(sumArray([2,3 , 4,3,5,3]))
-
-
-function samp(nums) {
-    return nums
-}
-
-console.log(samp(5));

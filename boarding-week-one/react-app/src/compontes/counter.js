@@ -1,7 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 
-
 export default function Counter() {
     const [count , setCount ] = useState(0);
     const location = useLocation()
@@ -12,6 +11,7 @@ export default function Counter() {
     const incrementCall = useCallback(()=>{
         setCount(count+ 1)
     },[count]);
+
     const decrementCall = useCallback(()=>{
         setCount(count - 1)
     },[count])

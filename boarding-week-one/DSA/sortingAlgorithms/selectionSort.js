@@ -94,4 +94,4 @@ function selectionSort(arr) {
     return arr
 }
 
-console.log(selectionSort(arr));
+

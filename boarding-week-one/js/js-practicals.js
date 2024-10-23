@@ -484,3 +484,12 @@ function sumOfnum(num){
 
 const samFun = eval('(function fun(){ return 10; })')
 
+asyncTask1(() => {
+  asyncTask2(() => {
+      asyncTask3(() => {
+          asyncTask4(() => {
+              console.log("Done");
+          });
+      });
+  });
+});

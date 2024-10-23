@@ -12,8 +12,8 @@ export default function Home() {
     { path: 'dashboard', name: 'Dashboard' },
     { path: 'stopWatch', name: 'StopWatch' },
   ];
-
-
+  
+  
 
   return (
     <div>
@@ -30,11 +30,13 @@ export default function Home() {
       <ul>
        <li>
 
-            <Link to={`counter?name=${data.name}`}>counterWithurl</Link>
+            <Link to={`counter?name=${data.name}`}> counterWithurl </Link>
+
        </li>
         <li>
 
-      <Link to={`stopWatch/${data.name}`}>stopWatchWithurl</Link>
+      <Link to={`stopWatch/${data.name}`}> stopWatchWithurl </Link>
+
         </li>
 
       </ul>

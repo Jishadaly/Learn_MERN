@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-
 const TodoApp = () => {
   const [todos, setTodos] = useState([]); // To store the list of todos
   const [inputValue, setInputValue] = useState(''); // For the input field
@@ -63,7 +62,6 @@ const TodoApp = () => {
           ))}
         </ul>
       </div>
-      <h1>Serched values</h1>
 
     </div>
   );

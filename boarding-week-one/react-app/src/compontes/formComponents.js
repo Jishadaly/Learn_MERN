@@ -1,10 +1,10 @@
 import React from 'react'
 import useFormInput from '../hooks/useFormInput'
 
-export default function FormComponents(props) {
+export default function FormComponents(){
+
     const nameInput = useFormInput('');
     const emailInput = useFormInput('');
-    const { name } = props.match.params;
 
     const handleSubmit = (e) => {
         
@@ -13,6 +13,7 @@ export default function FormComponents(props) {
         console.log(emailInput.value);
         
     }
+
     return (
         <div>
             <form onSubmit={handleSubmit}>

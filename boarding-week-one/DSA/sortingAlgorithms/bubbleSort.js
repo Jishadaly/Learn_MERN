@@ -57,6 +57,7 @@ const arr = [ 3,-1 ,42, 62];
 
 //     return arr
 // }
+
 // console.log(bubbleSort(arr));
 
 
@@ -66,21 +67,37 @@ function swap(arr , i , j){
 
 function bubbleSort(arr){
     let swapped;
-
     do{
         swapped = false
-
         for(let i=0; i<arr.length; i++){
-            if(arr[i] > arr[i+1]){
+            if(arr[i] > arr[ i+1 ]){
                 swap(arr , i, i+1)
+                swapped = true
+            }
+        }
+    }while(swapped)
+        return arr
+}
+
+// console.log(bubbleSort(arr));
+//
+
+function bubbleSortTest(arr) {
+    let swapped;
+
+    do{
+        
+        swapped = false
+        for(let i=0;i<arr.length-1;i++){
+            if(arr[i] > arr[i+1]){
+                [arr[i] , arr[i+1]] = [arr[i+1] , arr[i]] ;
                 swapped = true
             }
         }
 
     }while(swapped)
 
-        return arr
+    return arr
 }
 
-// console.log(bubbleSort(arr));
-
+console.log(bubbleSortTest([74,2,-1,83,2,52]));
