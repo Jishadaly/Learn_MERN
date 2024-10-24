@@ -142,4 +142,6 @@ function quickSort(arr){
 
 }
 
-console.log(quickSort([3,2,6,2,5,2,5,2]))
+
+console.log(quickSort(array));
+
