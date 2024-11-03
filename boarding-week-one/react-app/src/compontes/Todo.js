@@ -8,8 +8,7 @@ const TodoApp = () => {
   // Function to handle adding a new task
   const handleAddTodo = () => {
     if (inputValue.trim() !== '') {
-      console.log('ff');
-      
+           
       if (!todos.includes(inputValue)) {
         setTodos([...todos, inputValue]);
         setInputValue('');
@@ -20,8 +19,11 @@ const TodoApp = () => {
     }
   };
 
-  const filterdTodos = todos.filter((todo)=> { console.log('rerender');
-  return todo.toLowerCase().includes(searchValue.toLowerCase())} )
+  const filterdTodos = todos.filter((todo)=> { 
+
+  return todo.toLowerCase().includes(searchValue.toLowerCase() )
+
+  } )
   
 
   // Function to remove a task
