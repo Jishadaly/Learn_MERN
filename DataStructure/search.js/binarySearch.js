@@ -7,7 +7,7 @@ function binarySearch (arr , value){
        let mid = Math.floor(( leftIndex + rightIndex )/2)
        
        if (value === arr[mid]) {
-          return i +1
+          return mid
        }
 
        if (value < arr[mid]) {

@@ -1,26 +1,26 @@
 import { forwardRef, useRef } from "react"
 
- export default function ParentComponent (){
+export default function ParentComponent() {
 
     const ref = useRef();
-    const handleFocus = ()=>{
-         ref.current.focus();
+    const focusChild = ()=>{
+        ref.current.focus();
     }
 
-    return(
+    return (
+
         <div>
-            <CustumeInput ref={ref} />
-            <button  onClick={handleFocus}>Focus input from parent </button>
-         </div>
+            <CustumeInput ref={ref}/>
+            <button onClick={focusChild}> click to focus </button>
+        </div>
+
     )
 }
 
-const CustumeInput = forwardRef ( ( prop , ref)=> {
-
-    return(
-        <div>
-            <label>Enter Name : </label>
-            <input ref={ref} type="text" placeholder="type here" />
-        </div>
-    )
-});
+const CustumeInput = forwardRef((prop, ref) => {
+   return (
+    <div>
+         <input type=" text" ref={ref} placeholder="write somthing"/>
+    </div>
+   )
+})

@@ -1,22 +1,22 @@
 class Node {
-  constructor(){
+  constructor() {
     const children = {}
     isWordEnd = false
   }
 }
 
 class Trie {
-  constructor(){
+  constructor() {
     this.root = new Node()
   }
 
-  insert(word){
+  insert(word) {
     let curr = this.root
-    for(let i=0;i<word.length;i++){
+    for (let i = 0; i < word.length; i++) {
       let charToInsert = word[i]
 
       if (!curr.children.hasOwnProperty(charToInsert)) {
-         curr.children[charToInsert] = new Node()
+        curr.children[charToInsert] = new Node()
       }
 
       curr = curr.children[charToInsert]
@@ -24,28 +24,28 @@ class Trie {
     return curr.isWordEnd = true
   }
 
-  contains(word){
+  contains(word) {
     let curr = this.root
-    for(let i=0;i<word.length;i++){
-       let charToInsert = word[i]
-       if(!curr.children.hasOwnProperty(charToInsert)){
+    for (let i = 0; i < word.length; i++) {
+      let charToInsert = word[i]
+      if (!curr.children.hasOwnProperty(charToInsert)) {
         return false
-       }
-       curr = curr.children[charToInsert]
+      }
+      curr = curr.children[charToInsert]
     }
-     return curr.isWordEnd
+    return curr.isWordEnd
   }
 
-  startWithPreffix(word){
+  startWithPreffix(word) {
     let curr = this.root
-    for(let i=0;i<word.length;i++){
-       let charToInsert = word[i]
-       if (!curr.children.hasOwnProperty(charToInsert)) {
-         return false
-       }
-       curr = curr.children[charToInsert]
+    for (let i = 0; i < word.length; i++) {
+      let charToInsert = word[i]
+      if (!curr.children.hasOwnProperty(charToInsert)) {
+        return false
+      }
+      curr = curr.children[charToInsert]
     }
-    return  true
+    return true
   }
 
   // delete(word){
@@ -56,7 +56,7 @@ class Trie {
 
   //   this.deleteHealper(this.root , word , 0)
   // }
-  
+
   // deleteHealper(node , word , index){
   //    if (index === word.length ) {
   //     node.isWordEnd = false
@@ -73,41 +73,41 @@ class Trie {
   //    }
   // }
 
-  delete(word){
+  delete(word) {
     if (!this.contains(word)) {
       console.log(`${word}  word not in the trie`);
       return
     }
-    this.deleteHelper(this.root , word , 0)
+    this.deleteHelper(this.root, word, 0)
   }
 
-  deleteHelper(node , word , index){
-     if (index === word.length) {
-       node.isWordEnd = false
+  deleteHelper(node, word, index) {
+    if (index === word.length) {
+      node.isWordEnd = false
 
-       return
-     }
+      return
+    }
 
-     const charToDelete = word[index]
-     const nextNode = node.children[charToDelete]
-     this.deleteHelper(nextNode , word , index + 1)
+    const charToDelete = word[index]
+    const nextNode = node.children[charToDelete]
+    this.deleteHelper(nextNode, word, index + 1)
 
-     if (Object.keys(nextNode.children).length === 0 && !node.isWordEnd ) {
-       delete node.children[charToDelete]
-     }
+    if (Object.keys(nextNode.children).length === 0 && !node.isWordEnd) {
+      delete node.children[charToDelete]
+    }
   }
-  
+
 }
 
-class Node{
-  constructor(){
+class Node {
+  constructor() {
     const children = {}
     isWordEnd = false
   }
 }
 
-class Trie{
-  constructor(){
+class Trie {
+  constructor() {
     this.root = new Node();
   }
 }
@@ -115,14 +115,14 @@ class Trie{
 insert(word){
   let curr = this.root;
 
-  for(let i =0 ; i<word.length ; i++){
-     let charToInsert = word[i]
+  for (let i = 0; i < word.length; i++) {
+    let charToInsert = word[i]
 
-     if (!curr.children.hasOwnProperty(charToInsert)) {
-        curr.children[charToInsert] = new Node()
-     }
+    if (!curr.children.hasOwnProperty(charToInsert)) {
+      curr.children[charToInsert] = new Node()
+    }
 
-     curr = curr.children[charToInsert] 
+    curr = curr.children[charToInsert]
   }
   curr.isWordEnd = true
 }

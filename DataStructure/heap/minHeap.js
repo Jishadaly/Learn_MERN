@@ -161,6 +161,8 @@ class minHeap{
       }
 
       if (minIndex !== index) {
+        console.log(this.heap[minIndex]);
+        
         this.swap(minIndex , index)
 
         this.heapfyDown(minIndex)

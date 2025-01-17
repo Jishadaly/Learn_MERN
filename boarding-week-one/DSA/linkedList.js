@@ -1,4 +1,3 @@
-
 // class Node {
 //     constructor(value) {
 //         this.value = value;
@@ -332,128 +331,76 @@ class Node {
 }
 
 class LinkedList {
-
     constructor() {
-        this.head = null;
-        this.size = 0;
-    }
-    
-    isEmpty() {
-        return this.size === 0
+        this.head = null
+        this.size = 0
     }
 
-    appent(value) {
-        const node = new Node(value)
+    isEmpty() {
+        return this.size === 0;
+    }
+
+    appent(val) {
+        const node = new Node(val)
+
         if (this.isEmpty()) {
             this.head = node
         } else {
             let curr = this.head;
 
             while (curr.next) {
-                curr = curr.next
+                curr = curr.next;
             }
-            curr.next = node
+            curr.next = node;
         }
-        this.size++;
+
+        this.size++
     }
 
-    prepend(value) {
-        const node = new Node(value)
-        if (this.isEmpty()) {
-            this.head = node
-        } else {
-            node.next = this.head
-            this.head = node
-        }
-        this.size++;
-    }
-    
-    removeEvn() {
-        while(this.head !==null &&  this.head.value % 2 === 0 ){
-            this.head = this.head.next;
-
-        }
-
+    revers() {
         let curr = this.head;
+        let prev = null
 
-        while(curr !== null && curr.next !== null){
-            if (curr.next.value % 2 === 0) {
-                curr.next = curr.next.next
-            }else{
-                curr = curr.next
-            }
+        while (curr) {
+            let next = curr.next;
+
+            curr.next = prev
+            prev = curr
+            curr = next
         }
+
+        this.head = prev;
     }
 
-    remove(index) {
-        if (this.isEmpty()) {
-            console.log('list is empty');
-            return
-        }
-        let removedNode;
+    removedup() {
 
-        if (index === 0 ) {
-            removedNode = this.removeFront();
-        } else {
-            let curr = this.head;
+        if(!this.head) return null
+        
+        let curr = this.head
 
-            for (let i = 0; i < index - 1; i++) {
-                
-                curr = curr.next
+        while(curr.next){
+            let runner = curr
+            while(runner.next){
+                if(runner.next.value === curr.value ){
+                    runner.next = runner.next.next
+                }else{
+                    runner = runner.next
+                }
             }
-
-            removedNode = curr.next;
-            curr.next = removedNode.next;            
+            curr = curr.next
         }
         
-        this.size --;
+
+
+        
     }
 
-    removeFront() {
-        let removedNode = this.head;
-        this.head = this.head.next;
-
-        return removedNode;
-    }
-
-    reverse() {
-        if (this.isEmpty()) {
-            console.log('empty');
-        } else {
-            let curr = this.head;
-            let prev = null;
-
-            while (curr) {
-                let next = curr.next;
-
-                curr.next = prev
-                prev = curr
-                curr = next
-            }
-            this.head = prev;
-        }
-    }
-
-    reverseRec(curr = this.head, prev = null) {
-
-        if (curr == null) {
-            this.head = prev
-            return
-        }
-        let next = curr.next;
-        curr.next = prev;
-        this.reverseRec(next, curr);
-
-    }
-
-    print(){
-        if (this.isEmpty()) {
-            console.log('empty');
-            return
-        }
+    print() {
         let curr = this.head;
+
         while (curr) {
-            curr = curr.next;
+            console.log(curr.value);
+            curr = curr.next
         }
     }
 }
@@ -464,9 +411,14 @@ list.appent(37);
 list.appent(47);
 list.appent(374);
 list.appent(22);
-list.prepend(3);
+list.appent(47);
+// list.appent(374);
+// console.log('after removel');
+// list.revers()
 list.print();
-// list.reverseRec();
-list.removeEvn()
-console.log('after removel');
+list.removedup()
+
+console.log('.........................');
+
 list.print();
+

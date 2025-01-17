@@ -27,6 +27,10 @@ function asyncTask1(callback) {
   }, 1000);
 }
 
+// function asyncFunction1(callback){
+//  callback()
+// }
+
 function asyncTask2(callback) {
   setTimeout(() =>{
     console.log('async 2');

@@ -1,7 +1,7 @@
 function asynchronesFun(condition){
     try {
-        if (condition) {
-            throw Error('hey')
+        if (condition == false) {
+            throw new Error('hey')
         }
     } catch (error) {
         console.log(error);
@@ -10,4 +10,4 @@ function asynchronesFun(condition){
     }
 }
 
-console.log(asynchronesFun(true));
+console.log(asynchronesFun(false));

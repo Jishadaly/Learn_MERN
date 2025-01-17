@@ -1,20 +1,20 @@
 class Animal {
-    constructor(name){
+    constructor(name) {
         this.name = name
     }
 
-    sayhello(){
+    sayhello() {
         console.log(`hello, ${this.name} make sound!`);
     }
 }
 
 class Bird extends Animal {
-    constructor(name){
+    constructor(name) {
         super(name)
         this.name = name
     }
 
-    sayhello(){
+    sayhello() {
         console.log(`heyyyyyyy ${this.name} will flyyy`);
     }
 };

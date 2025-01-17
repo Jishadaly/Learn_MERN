@@ -8,4 +8,13 @@ obj.__proto__.greet = function(){
     
 }
 
-console.log(obj.greet);
+// console.log(obj.greet);
+
+Array.prototype.log = function (){
+    console.log(this.forEach((v)=> console.log(v)
+   ));
+}
+
+let arr = [1,3,5,6]; 
+
+arr.log()

@@ -1,5 +1,3 @@
-
-
 function binarySearch(arr, target) {
     let leftArr = 0;
     let rightArr = arr.length - 1;
@@ -195,6 +193,8 @@ class LinkedList {
     }
 
     print(){
+        console.log("start");
+        
         let curr = this.head;
 
         while(curr){
@@ -362,72 +362,3 @@ function expandString(str){
 let stri = 'a2b10c5'
 console.log(expandString(stri));
 
-
-
-
-
-
-class Node {
-    constructor(value){
-        this.value = value
-        this.next = null;
-    }
-}
-
-class StackLL {
-    constructor(){
-        this.top = null
-        this.size = null
-    }
-
-    isEmpty(){
-        this.size === null
-    }
-
-    push(value){
-        const node = new Node(value)
-        if (this.isEmpty()) {
-            this.top = node;
-        }else{
-            node.next = this.top
-            this.top = node 
-        }
-
-        this.size ++;
-    }
-
-    print(){
-        let curr = this.top;
-
-        while(curr){
-            console.log(curr.value);
-            curr = curr.next;
-        }
-    }
-
-    pop(){
-        if (this.isEmpty()) {
-            return null
-        }
-
-        let removed = this.top
-        this.top = this.top.next
-        this.size --
-
-        return removed
-    }
-}
-
-const st = new StackLL();
-
-st.push(5)
-st.push(9)
-st.push(3)
-st.print()
-console.log(st.top);
-
-st.pop()
-st.print()
-console.log(st.top);
-
-// valid paranthesis

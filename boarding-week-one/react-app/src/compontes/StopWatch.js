@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 
 export default function StopWatch() {
     const [seconds, setSeconds] = useState(0);
-    const [isActive, setIsactive] = useState(false)
+    const [isActive, setIsactive] = useState(false);
+
     useEffect(() => {
         let timer;
         if (isActive) {
@@ -12,9 +13,7 @@ export default function StopWatch() {
         } else {
             clearInterval(timer)
         }
-
         console.log('RENDERING use effect working');
-
         return () => {
             clearInterval(timer)
         }
@@ -22,6 +21,7 @@ export default function StopWatch() {
     }, [isActive, seconds]);
     
     return (
+
         <div style={{
             display: 'flex',
             alignItems: 'center',
@@ -29,8 +29,9 @@ export default function StopWatch() {
             height: '100vh',
 
         }}>
+
             <h1>  {seconds}</h1>
-            <button onClick={() => setIsactive(!isActive)}> {isActive ? 'Pouse' : 'Start'} </button>
+            <button onClick={() => setIsactive(!isActive)}> {isActive ? 'Pause' : 'Start'} </button>
             <button onClick={() => setSeconds(0)}> reset </button>
         </div>
     )

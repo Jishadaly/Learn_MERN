@@ -13,6 +13,6 @@ export default function withAuth(WrappedComponent) {
             }
         }, [navigate])
 
-        return <WrappedComponent />
+        return <WrappedComponent/> 
     }
-}
+};

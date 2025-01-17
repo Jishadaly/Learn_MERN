@@ -49,10 +49,9 @@ function sumMarkEachstd(object) {
 
     stdWithTotelMark.push(student)
   }
-
   return stdWithTotelMark;
-
 }
+
 // console.log(sumMarkEachstd(std))
 
 // //remove all adjecent odd elements from an array
@@ -67,7 +66,6 @@ function removeAdjecentOfOdd(arr) {
       i++
     }
   }
-
   return arr
 }
 
@@ -80,6 +78,7 @@ function removeAdjecentOfOdd(arr) {
 // find the student name with second largest mark in 10th class
 
 // find the student whose name ends in a vowel
+
 function getStudebtNameLastletterVowel(object) {
 
   const string = 'aeiou'
@@ -131,17 +130,31 @@ const fetchAllData = async () => {
 
 
 //password validator
-function validatePassword(password) {
-  const minLength = 8;
-  const hasUpperCase = /[A-Z]/.test(password); // Checks for uppercase letters
-  const hasLowerCase = /[a-z]/.test(password); // Checks for lowercase letters
-  const hasDigit = /[0-9]/.test(password);     // Checks for digits
-  const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password); // Checks for special characters
+// function validatePassword(password) {
+//   const minLength = 8;
+//   const hasUpperCase = /[A-Z]/.test(password); // Checks for uppercase letters
+//   const hasLowerCase = /[a-z]/.test(password); // Checks for lowercase letters
+//   const hasDigit = /[0-9]/.test(password);     // Checks for digits
+//   const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password); // Checks for special characters
 
-  if (password.length >= minLength && hasUpperCase && hasLowerCase && hasDigit && hasSpecialChar) {
-    return true; // Valid password
+//   if (password.length >= minLength && hasUpperCase && hasLowerCase && hasDigit && hasSpecialChar) {
+//     return true; // Valid password
+//   } else {
+//     return false; // Invalid password
+//   }
+// }
+
+function validatePassword(pass) {
+  const minLength = 8;
+  const hasUpperCase = /[A-Z]/.test(pass)
+  const hasLowerCase = /[a-z]/.test(pass)
+  const hasSpecialChar = /[!@#$%^&*()]/.test(pass)
+  const hasDigit = /[0-9]/.test(pass)
+
+  if (pass.length >= minLength && hasDigit && hasUpperCase && hasLowerCase && hasSpecialChar) {
+    return true
   } else {
-    return false; // Invalid password
+    return false;
   }
 }
 
@@ -194,29 +207,45 @@ const dateWithoutTime = today.toLocaleDateString();
 
 //flip string
 
-function flipCase(str) {
-  return str
-    .split('') // Convert string to an array of characters
-    .map(char => {
-      if (char === char.toUpperCase()) {
-        return char.toLowerCase();
-      } else {
-        return char.toUpperCase();
-      }
-    })
-    .join(''); // Join the array back into a string
-}
+// function flipCase(str) {
+//   return str
+//     .split('') // Convert string to an array of characters
+//     .map(char => {
+//       if (char === char.toUpperCase()) {
+//         return char.toLowerCase();
+//       } else {
+//         return char.toUpperCase();
+//       }
+//     })
+//     .join(''); // Join the array back into a string
+// }
 
+
+function flipCase(str) {
+  const string = str.split('')
+
+  let stringnew = string.map((char) => {
+    if (char === char.toUpperCase()) {
+      return char.toLowerCase()
+    } else {
+      return char.toUpperCase();
+    }
+  })
+
+  return stringnew.join('')
+
+}
 // Example usage
-const flipped = flipCase("Hello World!");
+// const flipped = flipCase("Hello World!");
 // console.log(flipped); // Output: "hELLO wORLD!"
 
 
 //ramdome array element each call
 function* randomElementGenerator(arr) {
-  while (true) { // Keeps the generator running indefinitely
-    const randomIndex = Math.floor(Math.random() * arr.length);
-    yield arr[randomIndex];
+  while (true) {
+    const ram = Math.floor(Math.random() * arr.length)
+    // console.log(ram);
+    yield arr[ram]
   }
 }
 
@@ -224,51 +253,67 @@ function* randomElementGenerator(arr) {
 const colors = ["red", "green", "blue", "yellow"];
 const colorGenerator = randomElementGenerator(colors);
 
+// console.log(colorGenerator.next().value);
+// console.log(colorGenerator.next().value);
+// console.log(colorGenerator.next().value);
+
+
 // console.log(colorGenerator.next().value); // e.g., "blue"
 // console.log(colorGenerator.next().value); // e.g., "green"
 // console.log(colorGenerator.next().value); // e.g., "yellow"
 
 //days left until target day
+// function daysUntil(targetDate) {
+//   const today = new Date()
+//   const target = new Date(targetDate)
+
+//   const dateinMilSec = target - today;
+
+//   const daysLeft = Math.ceil(dateinMilSec / (1000 * 60 * 60 * 24))
+
+//   return daysLeft
+// }
+
+
 function daysUntil(targetDate) {
-  const today = new Date()
-  const target = new Date(targetDate)
+  const today = new Date();
+  const target = new Date(targetDate);
 
   const dateinMilSec = target - today;
-
+  console.log(dateinMilSec);
   const daysLeft = Math.ceil(dateinMilSec / (1000 * 60 * 60 * 24))
 
+  // console.log(daysLeft);
   return daysLeft
 }
-
 // Example usage
-const daysLeft = daysUntil("2024-12-25"); // Target date: Dec 25, 2024
+// const daysLeft = daysUntil("2024-12-25"); // Target date: Dec 25, 2024
 // console.log('days left :',daysLeft); // Output: Number of days until Dec 25, 2024
 
 const a = '1' + 1;
 // console.log(typeof(a) , a)
 
 
-function groupAnagrams(strs) {
-  const anagrams = {};
+function groupAnagrams(arr) {
 
-  for (const str of strs) {
-    // Sort the string and join the characters to create a key
-    const sortedStr = str.split('').sort().join('');
+  const map = {}
 
-    // Group the anagrams by their sorted string key
-    if (!anagrams[sortedStr]) {
-      anagrams[sortedStr] = []; // Initialize an empty array for this key
+  for (let str of arr) {
+    let word = str.split('').sort().join('');
+
+    if (!map[word]) {
+      map[word] = []
     }
-    anagrams[sortedStr].push(str); // Add the original string to the group
-  }
+    map[word].push(str);
 
-  // Return the grouped anagrams as an array of arrays
-  return Object.values(anagrams);
+  }
+  return Object.entries(map)
+
 }
 
 // Example usage
 const input = ["eat", "tea", "tan", "ate", "nat", "bat"];
-const groupedAnagrams = groupAnagrams(input);
+// const groupedAnagrams = groupAnagrams(input);
 // console.log(groupedAnagrams);
 
 
@@ -276,12 +321,9 @@ const groupedAnagrams = groupAnagrams(input);
 function day35afterToday() {
 
   const today = new Date()
-
   const day = new Date(today);
-
-  day.setDate(day.getDate() + 26)
-
-  return day.toDateString()
+  day.setDate(day.getDate() + 35);
+  return day.toDateString();
 
 }
 
@@ -298,13 +340,15 @@ const object = {
   age: 23
 }
 
-let keys = Object.keys(object)
+const keys = Object.keys(object)
 
-let prop = keys[keys.length - 1]
+const key = keys[keys.length - 1]
 
-delete object[prop]
+delete object[key]
 
-// console.log(object);
+console.log(object);
+
+
 
 function* generateNum() {
   let num = 100;
@@ -321,17 +365,14 @@ function* generateNum() {
 function printMultple() {
 
   const generator = generateNum()
-
   const interval = setInterval(() => {
     const { value, done } = generator.next()
     if (!done) {
       console.log(value);
-
     } else {
       clearInterval(interval)
     }
-  }, 1000)
-
+  }, 1000);
 }
 
 // printMultple()
@@ -371,36 +412,60 @@ const sorted = str.split('').sort().join('')
 
 
 
-function expandString(str) {
+// function expandString(str) {
 
+//   let i = 0;
+//   let result = ''
+
+//   while (i < str.length) {
+//     let char = str[i]
+//     i++
+
+//     let strCount = ''
+//     while (i < str.length && !isNaN(str[i])) {
+//       console.log(str[i]);
+//       strCount += str[i]
+//       i++
+//     }
+//     let count = parseInt(strCount)
+
+//     for (let j = 0; j < count; j++) {
+//       result += char
+//     }
+//   }
+//   return result
+// }
+
+function expandString(str) {
   let i = 0;
   let result = ''
-
   while (i < str.length) {
     let char = str[i]
     i++
 
-    let strCount = ''
-    while (i < str.length && !isNaN(str[i])) {
-      console.log(str[i]);
-      strCount += str[i]
+    let charCount = ''
+    if (i < str.length && !isNaN(str[i])) {
+      charCount += str[i]
       i++
     }
-    let count = parseInt(strCount)
+
+    let count = parseInt(charCount);
 
     for (let j = 0; j < count; j++) {
       result += char
     }
   }
+  // console.log(result);
+
   return result
 }
 
-let stri = 'a2b10c5'
-// console.log(expandString(stri));
+let stri = 'a2b1c5'
+console.log(expandString(stri));
 
 function extractNegatives(arr) {
 
-  let arrr = []
+  let arrr = [];
 
   for (let val of arr) {
     for (let items of val) {
@@ -432,7 +497,7 @@ function largeDigit(num) {
       max = digit
     }
 
-    num = Math.floor(num / 10)
+    num = Math.floor(num / 10);
   }
 
   return max
@@ -465,8 +530,8 @@ function removeDup(arr) {
   return set;
 }
 
-const testArr = [1, 2, 3, 2, 5, 6, 8, 6, 8, 5, 8, 5, 8, 4, 5, 7, 8, 7, 7, 7, 7, 7, 7]
-// console.log(removeDup(testArr));
+const testArr = [1, 2, 3, 2, 5, 6, 8, 6, 8, 5, 8, 5, 8, 4, 5, 7, 8, 7, 7, 7, 7, 7, 7];
+console.log(removeDup(testArr));
 
 function reversSeq(arr) {
   let result = arr.map((num) => parseInt(num.toString().split('').reverse().join('')))
@@ -497,7 +562,7 @@ function reverseWord(str) {
     result += ' '
   }
 
-  return result
+  return result;
 
 }
 
@@ -519,25 +584,20 @@ function rotatesArray(arr, k) {
   return rotated;
 }
 
-// rotatesArray()
-
+// rotatesArray();
 
 function kthLargest(arr, k) {
   let rs = arr.sort((a, b) => b - a)
-  return rs[k - 1]
+  return rs[k - 1];
 }
 
-// console.log(kthLargest([3, 2, 1, 5, 6, 4], 1));  // Output: 5
+console.log(kthLargest([3, 2, 1, 5, 6, 4], 3));  // Output: 5
 
 function moveZeros(arr) {
-
   let count = 0;
-  console.log(arr);
-
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] !== 0) {
-
-      arr[count++] = arr[i]
+      arr[count++] = arr[i];
     }
   }
 
@@ -545,21 +605,19 @@ function moveZeros(arr) {
     arr[count++] = 0
   }
 
-  return arr
+  return arr;
 }
-
-
 // console.log(moveZeros([0, 1, 0, 3, 12]));
 
 function binarySearchRec(arr, target, left = 0, right = arr.length - 1) {
   if (left > right) {
-    return -1
+    return -1;
   }
 
-  let mid = Math.floor((left + right) / 2)
+  let mid = Math.floor((left + right) / 2);
 
   if (mid === target) {
-    return mid
+    return mid;
   }
   else if (target > arr[mid]) {
     return binarySearchRec(arr, target, mid + 1, right)
@@ -569,7 +627,6 @@ function binarySearchRec(arr, target, left = 0, right = arr.length - 1) {
 }
 
 // console.log(binarySearchRec([1, 2, 3, 4, 5, 6, 7], 3));
-
 
 function count(str) {
 
@@ -587,7 +644,7 @@ function count(str) {
     }
   }
 
-  return result
+  return result;
 }
 
 // console.log(count('aaabbccca'));
@@ -606,7 +663,6 @@ function allSubStrings(str) {
 
 // console.log(allSubStrings('jishad'));
 
-
 function dupChars(str) {
   let charCount = {}
   let dup = []
@@ -614,18 +670,15 @@ function dupChars(str) {
     charCount[char] = char
   }
 
-  // console.log(charCount);
-
   for (let key in charCount) {
 
     if (charCount[key] > 1) {
-      dup.push(key)
+        dup.push(key)
     }
   }
-
   return dup
-
 }
+
 //console.log(dupChars('nnnnnnnnnnnnnsnnsnsnrwnrwnr'));
 
 function object1(str1, str2) {
@@ -636,58 +689,88 @@ function object1(str1, str2) {
   }
 
   for (let char of str1) {
-    // console.log(char);
-    if (!charCount[char]) { 
+
+    if (!charCount[char]) {
       return char
 
     } else {
       charCount[char]--
-      // console.log(char);
+
     }
 
   }
 
 }
 
-// console.log(object1('jishadaly', 'jishadal'))
+console.log(object1('jishadaly', 'jishadal'))
 
+// function groupAnagrams (words){
+//   let map = {}
+//   for(let word of words){
+//     // console.log('word :', word);
 
-function groupAnagrams (words){
-  let map = {}
-  for(let word of words){
-    // console.log('word :', word);
-    
-       let sorted = word.split('').sort().join('')
-      //  console.log(sorted);
-       
-       if(!map[sorted]){
-        map[sorted] = []
-       }
+//        let sorted = word.split('').sort().join('')
+//       //  console.log(sorted);
 
-       map[sorted].push(word)
-  }
-  return map
-}
+//        if(!map[sorted]){
+//         map[sorted] = []
+//        }
+
+//        map[sorted].push(word)
+//   }
+//   return map
+// }
 
 const words = ["eat", "tea", "tan", "ate", "nat", "bat"]
 // console.log(groupAnagrams(words));
 
 
-function isPalindrome(str){
-     let left = 0;
-      let right = str.length - 1
+function isPalindrome(str) {
+  let left = 0;
+  let right = str.length - 1
 
-      while(left <= right){
-          
-        if (str[left] !== str[right]) {
-          return false
-        }
-        left ++
-        right --
-      }
-      
-      return true
+  while (left <= right) {
+
+    if (str[left] !== str[right]) {
+      return false
+    }
+    left++
+    right--
+  }
+
+  return true
 }
 
 
-console.log(isPalindrome('ashdddna'));
+// console.log(isPalindrome('malayalam'));
+
+function getFib(num) {
+
+  if (num == 0) {
+    return []
+  }
+
+  if (num === 1) {
+    return [0]
+  }
+
+
+  if (num === 2) {
+    return [0, 1]
+  }
+
+  const fibSeq = getFib(num - 1);
+  console.log(fibSeq);
+  
+  let nextvalue = fibSeq[fibSeq.length - 1] + fibSeq[fibSeq.length - 2]
+
+  fibSeq.push(nextvalue)
+
+  return fibSeq
+
+
+}
+// console.log(getFib(10));
+
+// convert prices into int ""₹80.00"" -> 80
+//Create props proxy for HOC

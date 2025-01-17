@@ -15,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <ErrorBoundary>
+        
         <Routes>
           {/* <Route path="/" element = {<Home/>}/> */}
           {/* <Route path="/" element = {<Parant/>}/> */}

@@ -57,7 +57,7 @@
 //     console.log(error);
 //   }
 // }
-
+#
 // function getDataFromServer(){  
 //   setTimeout(()=>{
 //     console.log("fetch data");
@@ -167,22 +167,22 @@
 // }
 
 
-// function reverseWords(str) {
-//   // Base case: if the string has no space or is empty, return it
-//   const lastIndex = str.lastIndexOf(' ');
-//   console.log('//',lastIndex);
-//   if (lastIndex === -1) {
-//       return str;
-//   }
-//   // Recursive case: reverse the substring after the last space and concatenate it
-//   return reverseWords(str.substring(lastIndex + 1)) + ' ' + str.substring(0, lastIndex);
-// }
+function reverseWords(str) {
+  // Base case: if the string has no space or is empty, return it
+  const lastIndex = str.lastIndexOf(' ');
+  console.log('//',lastIndex);
+  if (lastIndex === -1) {
+      return str;
+  }
+  // Recursive case: reverse the substring after the last space and concatenate it
+  return reverseWords(str.substring(lastIndex + 1)) + ' ' + str.substring(0, lastIndex);
+}
 
 // Example usage:
-// const originalString = "jishad ali";
-// const reversedString = reverseWords(originalString);
-// console.log("Original string:", originalString);
-// console.log("Reversed string:", reversedString);
+const originalString = "jishad ali";
+const reversedString = reverseWords(originalString);
+console.log("Original string:", originalString);
+console.log("Reversed string:", reversedString);
 
 
 // //waek set 
@@ -692,7 +692,7 @@ function findNonrepeating(arr) {
 }
 let numbers = [-1, 2, 5, 6, 2, 9, -1, 6, 5, -1, 3]
 
-// console.log(findNonrepeating(numbers)); 
+console.log('haha',findNonrepeating(numbers)); 
 
 function combination(arr) {
   let result = []
@@ -710,7 +710,7 @@ function combination(arr) {
 }
 const num = [4, 5, 6, 3, 2, 6, 4];
 
-// console.log(combination(num));
+console.log(combination(num));
 
 
 function mostRepeating(arr) {

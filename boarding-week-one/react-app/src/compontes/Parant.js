@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 
 export default function Parant() {
-    const [ childData , setChildData ] = useState(null)
-     const handleChildData = (data) =>{
-        setChildData(data);
-     }
+    
+    const [ childData , setChildData ] = useState();
+        const handleHere = (data)=>{
+            setChildData(data)
+        }
     return (
         <div>
-            <h1> data : { childData ? childData : 'no data recived' }</h1>
-            <Child sendDatatoParant = { handleChildData }/>
+            data : { childData ? childData : 'no data recived'}
+            <Child sendedData = {handleHere} />
         </div>
     )
 }
@@ -16,16 +17,15 @@ export default function Parant() {
 
 
  function Child(props) {
-
-    const data = 'hello from child'
-    const handlPassdata = ()=>{
-        props.sendDatatoParant(data);
+    const data  = 'message from child'
+    const handleSend = ()=>{
+        props.sendedData(data);
     }
-    return (
-        <div>
-            <button onClick={handlPassdata}> send data to parant </button>
-        </div>
-    )
+return(
+    <div>
+        <button onClick={handleSend}> send data to parent </button>
+    </div>
+  )
 }
 
 
