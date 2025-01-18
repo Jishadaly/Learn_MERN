@@ -559,7 +559,7 @@ function reverseWord(str) {
 
   for (let i = words.length - 1; i >= 0; i--) {
     result += words[i]
-    result += ' '
+    result += ' 'qqqqqq
   }
 
   return result;
