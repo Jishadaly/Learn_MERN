@@ -422,3 +422,61 @@ console.log('.........................');
 
 list.print();
 
+removedup(){
+           
+    const set = new Set()
+    
+    // while(this.head && set.has(this.head.value)){
+    //     console.log('fffffff')
+    //     this.head = this.head.next
+    //     this.size --
+    // }
+    
+    set.add(this.head.value)
+    
+    let curr = this.head
+    
+    while(curr.next){
+        if(set.has(curr.next.value)){
+            curr.next = curr.next.next
+            this.size --
+        }else{
+            set.add(curr.next.value)
+            curr = curr.next;
+        }
+    }
+}
+
+reverse() {
+    let curr = this.head
+    let prev = null
+
+    while (curr) {
+        let next = curr.next
+
+        curr.next = prev
+        prev = curr
+        curr = next
+    }
+    this.head = prev
+}
+
+reverseRec(curr = this.head, prev = null) {
+    if (curr === null) {
+        this.head = prev
+        return
+    }
+
+    let next = curr.next
+    curr.next = prev
+
+    this.reverseRec(next, curr)
+}
+
+print() {
+    let curr = this.head
+    while (curr) {
+        console.log(curr.value);
+        curr = curr.next
+    }
+}
