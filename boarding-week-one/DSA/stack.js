@@ -214,3 +214,30 @@ class stackUsingQueue{
     }
     
 }
+
+function sortStack(stack) {
+    let tempStack = []
+
+    while (stack.length) {
+        let curr = stack.pop()
+
+        if (curr % 2 !== 0) {
+
+            tempStack.push(curr)
+        } else {
+            while (tempStack.length && tempStack[tempStack.length - 1] < curr) {
+                stack.push(tempStack.pop())
+            }
+            tempStack.push(curr)
+        }
+    }
+
+    while (tempStack.length > 0) {
+        stack.push(tempStack.pop())
+    }
+    return stack
+}
+
+
+const stack = [4, 8, 3, 1, 2, 6]
+console.log(sortStack(stack));
