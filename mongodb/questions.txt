@@ -1,0 +1,52 @@
+Certainly! Here are 50 MongoDB questions covering a variety of queries:
+
+1. Find all teachers who teach subjects related to statistics.
+2. Find the average age of all teachers.
+3. Find teachers who earn a salary greater than the average salary.
+4. Find the teacher with the highest salary.
+5. Find teachers who teach either 'java' or 'android'.
+6. Find teachers who teach more than two subjects.
+7. Find the total number of teachers in each department.
+8. Find the oldest teacher.
+9. Find teachers who teach a subject containing 'math'.
+10. Find teachers from the 'stati' department.
+11. Find teachers whose salary is not a whole number.
+12. Find teachers who are younger than 40 and earn more than 20000.
+13. Find teachers who don't teach any subjects related to programming.
+14. Find the department with the highest average salary.
+15. Find teachers whose name starts with 'a'.
+16. Find teachers who teach both 'c++' and 'DSA'.
+17. Find the department with the fewest teachers.
+18. Find teachers who have 'issues that matter' as a subject but not 'fine tune'.
+19. Find teachers who earn a salary within the range of 10000 to 20000.
+20. Find the total number of subjects taught by all teachers.
+21. Find teachers who teach subjects starting with 's'.
+22. Find teachers who teach subjects related to 'cloud' or 'java'.
+23. Find the average salary of teachers aged 30 or older.
+24. Find teachers who have subjects in uppercase letters.
+25. Find teachers who earn a salary less than the average salary.
+26. Find teachers who teach subjects containing 'os' or 'OS'.
+27. Find teachers who teach only one subject.
+28. Find teachers who have a salary greater than or equal to 50000.
+29. Find teachers whose name contains 'i' and are from the 'stati' department.
+30. Find teachers who teach subjects with names starting with 'd'.
+31. Find teachers who are not from the 'maths' department.
+32. Find teachers who teach subjects related to 'statistics' or 'cloud' and are aged 35 or older.
+33. Find teachers who earn a salary that is not equal to 10904.
+34. Find teachers who teach subjects containing the word 'issue' but not 'fine'.
+35. Find the total count of subjects for each teacher.
+36. Find teachers who teach subjects starting with a lowercase letter.
+37. Find teachers who teach subjects related to 'programming' or 'java' and are aged 30 or younger.
+38. Find the average age of teachers who teach subjects related to 'cloud'.
+39. Find teachers who teach subjects related to 'cloud' and earn a salary greater than 30000.
+40. Find teachers who have a salary less than or equal to the average salary of teachers aged 30 or younger.
+41. Find teachers who teach subjects with names containing more than one word.
+42. Find teachers who don't teach any subjects related to programming and are aged 40 or older.
+43. Find the count of teachers who teach each distinct subject.
+44. Find teachers who have the same age.
+45. Find teachers who have a salary that is not equal to 10904 and are not from the 'maths' department.
+46. Find teachers who teach subjects starting with 'st' or 'is'.
+47. Find teachers who teach subjects related to 'cloud' or 'java' and are aged between 25 and 35.
+48. Find the count of teachers who teach more than three subjects.
+49. Find teachers who teach subjects containing the word 'issue' and have a salary greater than 10000.
+50. Find teachers who don't teach any subjects related to programming and have a salary less than 15000.
