@@ -12,8 +12,4 @@ const anotherObj = {
   };
 
   const argArray  = ['hello','hey']
-//   const newGreat = obj.greet.bind(anotherObj ,'hello','hey' );
-//   newGreat();
-
-// obj.greet.call(anotherObj , 'hello' )
 obj.greet.apply(anotherObj , argArray)
