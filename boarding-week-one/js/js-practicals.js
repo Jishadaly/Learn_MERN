@@ -368,7 +368,7 @@ function getTomorowDate() {
   return tommorow.toDateString()
 }
 
-// console.log(getTomorowDate());
+
 
 function sumDigit(num) {
 
@@ -386,13 +386,13 @@ function sumDigit(num) {
   return sum
 }
 
-// console.log("e", sumDigit(12));
+
 
 function filterString(arr) {
   return arr.filter((value) => typeof (value) === 'string');
 }
 
-// console.log(filterString([1, 'two', 3, 'four', 5, true, 'six', 7]));
+
 
 const nums = [4, 5, 6, 3, 2, 6, 4];
 

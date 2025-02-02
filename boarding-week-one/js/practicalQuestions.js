@@ -540,7 +540,7 @@ function reversSeq(arr) {
 
 const arr = [435, 524]
 
-// console.log(reversSeq(arr));
+
 
 function reverseWord(str) {
   let result = ""
@@ -566,7 +566,7 @@ function reverseWord(str) {
 
 }
 
-// console.log(reverseWord('Hello World'))
+
 
 function rotatesArray(arr, k) {
   let n = arr.length
@@ -584,7 +584,6 @@ function rotatesArray(arr, k) {
   return rotated;
 }
 
-// rotatesArray();
 
 function kthLargest(arr, k) {
   let rs = arr.sort((a, b) => b - a)
@@ -607,7 +606,7 @@ function moveZeros(arr) {
 
   return arr;
 }
-// console.log(moveZeros([0, 1, 0, 3, 12]));
+
 
 function binarySearchRec(arr, target, left = 0, right = arr.length - 1) {
   if (left > right) {
@@ -626,7 +625,7 @@ function binarySearchRec(arr, target, left = 0, right = arr.length - 1) {
   return binarySearchRec(arr, target, left, mid - 1)
 }
 
-// console.log(binarySearchRec([1, 2, 3, 4, 5, 6, 7], 3));
+
 
 function count(str) {
 
