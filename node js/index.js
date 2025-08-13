@@ -354,30 +354,72 @@
 
 
 
-const express = require('express')
+// const express = require('express')
 
-const app = express();
-const port = 3000
+// const app = express();
+// const port = 3000
+
+// app.use(express.json())
+
+// app.get('/:id',(req , res)=>{
+
+//     // console.log(req.params)
+
+//     const value1  = req.params.id;
+
+//     const {  value2 } = req.query;
+//     console.log(value1 , value2 )
+//     let diveded = (parseInt(value1)) % (parseInt(value2))
+//     console.log(diveded);
+
+
+//     res.status(200).send(diveded)
+// })
+
+
+// app.listen(port , ()=>{
+//     console.log('server is running..');
+
+// })
+
+
+// create an express route which takes two numbers as query parameters and a route middleware to double the values and write the sum of two in a file named sum.txt
+
+
+const express = require('express')
+const app = express()
+const port = 3000;
+
+
+const doubleNumbers = (req, res, next) => {
+    console.log("middlware called.")
+    console.log("actuall nums", req.query.nums)
+    const nums = req.query.nums.split(',').map(item => 2 * Number(item))
+    console.log(nums)
+    req.doubledNumbers = nums
+    next()
+}
+
 
 app.use(express.json())
+app.get('/double', doubleNumbers, (req, res, next) => {
 
-app.get('/:id',(req , res)=>{
 
-    // console.log(req.params)
+    fs.writeFile('text.txt', `the doubled Numbers are ${req.doubledNumbers}`, 'utf-8', (err) => {
+        console.log(err)
+    })
 
-    const value1  = req.params.id;
+    fs.readFile('text.txt','utf-8' ,(err, data)  =>{
+        console.log("data : " ,data)
+    },'')
 
-    const {  value2 } = req.query;
-    console.log(value1 , value2 )
-    let diveded = (parseInt(value1)) % (parseInt(value2))
-    console.log(diveded);
-    
-
-    res.status(200).send(diveded)
+    res.status(200).send({
+        message: `the doubled Numbers are.`,
+        values: req.doubledNumbers
+    })
 })
 
 
-app.listen(port , ()=>{
-    console.log('server is running..');
-    
+app.listen(port, () => {
+    console.log('node js server is running');
 })

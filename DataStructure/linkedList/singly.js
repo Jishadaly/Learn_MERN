@@ -321,9 +321,94 @@
 // list.print()
 
 
+// class Node {
+//   constructor(value) {
+//     this.value = value
+//     this.next = null
+//   }
+// }
+
+// class LinkedList {
+//   constructor() {
+//     this.head = null
+//     this.size = 0
+//   }
+
+//   isEmpty() {
+//     return this.size === 0
+//   }
+
+//   prepend(value) {
+//     const node = new Node(value)
+
+//     if (this.isEmpty()) {
+//       this.head = node
+//     } else {
+//       node.next = this.head
+//       this.head = node
+//     }
+//     this.size++
+//   }
+
+//   append(value) {
+//     const node = new Node(value)
+//     if (this.isEmpty()) {
+//       this.head = node
+//     } else {
+//       let curr = this.head;
+//       while (curr.next) {
+//         curr = curr.next
+//       }
+//       curr.next = node
+//     }
+//     this.size ++
+//   }
+
+//   print() {
+//     if (this.isEmpty()) {
+//       console.log('empty');
+//     } else {
+//       let curr = this.head;
+//       while (curr) {
+//         console.log(curr.value);
+//         curr = curr.next
+//       }
+//     }
+//   }
+
+//   reverse(){
+//     if (this.isEmpty()) {
+//        return
+//     }
+//   let curr = this.head;
+//   let prev = null
+
+//   while(curr){
+
+//      let next = curr.next;
+//      curr.next = prev
+//      prev = curr
+//      curr = next;
+
+//    }
+//     this.head = prev;
+//   }
+// }
+
+// const list = new LinkedList()
+
+// list.append(10);
+// list.append(20);
+// list.append(30);
+// list.append(40);
+// list.prepend(5);
+// list.prepend(0.5);
+// list.reverse();
+// list.print();
+
 class Node {
   constructor(value) {
-    this.value = value
+    this.value = value;
     this.next = null
   }
 }
@@ -339,69 +424,88 @@ class LinkedList {
   }
 
   prepend(value) {
-    const node = new Node(value)
-
+    const newNode = new Node(value)
     if (this.isEmpty()) {
-      this.head = node
+      this.head = newNode;
     } else {
-      node.next = this.head
-      this.head = node
+      let curr = this.head;
+      newNode.next = curr
+      this.head = newNode
     }
     this.size++
   }
 
   append(value) {
-    const node = new Node(value)
+    const newNode = new Node(value);
     if (this.isEmpty()) {
-      this.head = node
+      this.head = newNode
     } else {
       let curr = this.head;
-      while (curr.next) {
-        curr = curr.next
+
+      while (curr.next !== null) {
+        curr = curr.next;
       }
-      curr.next = node
+      curr.next = newNode
     }
-    this.size ++
+    this.size++
+  }
+
+  reverse() {
+    if (this.isEmpty()) {
+      console.log("list is empty")
+      return;
+    } else {
+      let curr = this.head;
+      let prev = null
+
+      while (curr) {
+        let next = curr.next;
+
+        curr.next = prev
+        prev = curr
+        curr = next
+      }
+
+      this.head = prev
+    }
+  }
+
+  removeMid() {
+    if (this.isEmpty()) {
+      return null
+    }
+
+    let mid = Math.floor(this.size / 2)
+    console.log(this.size, " size ","mid value ",mid)
+    let curr = this.head;
+    for (let i = 0; i < mid-1; i++) {
+      curr = curr.next;
+    }
+    let removedNode = curr.next;
+    curr.next = removedNode.next;
+    return removedNode;
   }
 
   print() {
-    if (this.isEmpty()) {
-      console.log('empty');
-    } else {
-      let curr = this.head;
-      while (curr) {
-        console.log(curr.value);
-        curr = curr.next
-      }
+    let curr = this.head;
+    while (curr) {
+      console.log(curr.value);
+      curr = curr.next;
     }
-  }
-
-  reverse(){
-    if (this.isEmpty()) {
-       return
-    }
-  let curr = this.head;
-  let prev = null
-  
-  while(curr){
-
-     let next = curr.next;
-     curr.next = prev
-     prev = curr
-     curr = next;
-
-   }
-    this.head = prev;
   }
 }
 
 const list = new LinkedList()
+list.prepend(1)
+list.prepend(2)
+list.prepend(3)
+list.append(4)
+list.append(5)
+list.reverse()
+console.log('before remove')
+list.print()
 
-list.append(10);
-list.append(20);
-list.append(30);
-list.append(40);
-list.prepend(5);
-list.prepend(0.5);
-list.reverse();
-list.print();
+console.log('removed value :', list.removeMid())
+
+console.log('after removal :')
+list.print()

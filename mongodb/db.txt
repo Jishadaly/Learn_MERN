@@ -1,4 +1,4 @@
-mongo qyeries
+mongo queries
 
  1.use new Db=use database/delete database
 
@@ -34,13 +34,14 @@ mongo qyeries
 
 17.EmployeeInfo> db.employee.aggregate([{$match:{Salary:{$gt:70000}}}])
 
-18. db.employee.aggregate([{$group:{_id:{Department:"$Department",Salary:"$Salary"}}}])
+18. db.employee.aggregate([{$group:{_id:{Department:"$Department",Salary:"$Salary"}}}])x`
 
 19.EmployeeInfo> db.employee.aggregate([{$match:{Salary:{$gt:70000}}},{$count:"count"}])
 
 20.EmployeeInfo> db.employee.aggregate([{$count:'Salary'}])
 
 21.EmployeeInfo> db.employee.aggregate([{$project:{EmpFname:1,EmpLname:1}}])
+eg: db.employees.aggregate([{$project:{name:1 , age:1 , _id:0, yearOfBirth:{$subtract:[2025,"$age" ] }  } } ])
 
 22/db.employee.aggregate([{$group{_id:"$Salary",count:{$sum:1}}])
 
@@ -50,7 +51,7 @@ mongo qyeries
 
 25.EmployeeInfo> db.employee.aggregate([{$out:"CopyCollection"}])//copy collection
 
-26.EmployeeInfo> db.movies.aggregate([{$lookup:{from:'marketing',localField:'marketId',foreignField:'_id', as:'marketId'}}])
+26.EmployeeInfo> db.movies.aggregate([{$lookup:{from:'marketing',localField:'marketId',foreignField:'_id', as:'marketId'}}])    
 
 27.db.doc1.updateMany({},{$set:{date:ISODate(""2024-04-05T12:00:00Z"")}})
 
