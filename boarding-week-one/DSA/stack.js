@@ -1,136 +1,3 @@
-// class Stack {
-//     constructor() {
-//         this.items = [];
-//         this.size = 0;
-//     }
-
-//     isEmpty() {
-//         return this.size === 0
-//     }
-
-//     push(value) {
-//         this.items.push(value);
-//     }
-
-//     pop() {
-//         if (this.isEmpty()) {
-//             return 'stack is empty'
-//         }
-//         const result = this.items.pop();
-//         return result;
-//     }
-// }
-
-class Stack {
-    constructor() {
-        this.items = []
-        this.size = 0;
-    }
-
-    push(value) {
-        this.items.push(value)
-
-    }
-
-    pop(value) {
-        if (this.items.length === 0) {
-            console.log('stack underflow');
-            return
-        }
-        this.items.pop(value)
-    }
-
-    removeMid() {
-        let stack = new Stack();
-        let mid = Math.floor(this.items.length / 2)
-
-        for (let i = 0; i < mid; i++) {
-            stack.push(this.items.pop());
-        }
-        let removedElement = this.items.pop();
-
-        while (stack.items.length > 0) {
-            this.items.push(stack.items.pop())
-        }
-
-        console.log(stack.items);
-
-        return removedElement;
-    }
-}
-
-
-let stack = new Stack()
-
-stack.push(10)
-stack.push(20)
-stack.push(30)
-stack.push(40)
-
-console.log(stack.items);
-
-console.log(stack.removeMid());
-
-// console.log(stack.items);
-
-
-function Valid(s) {
-    const stack = []
-
-    let obj = {
-        '[': ']',
-        '{': '}',
-        '(': ')'
-    }
-
-    for (let char in s) {
-        if (char in ob) {
-            stack.push(char)
-            console.log('char', char);
-        } else {
-            let top = stack.pop()
-            if (char !== obj[top]) {
-                return false
-            }
-        }
-    }
-
-    return stack.length === 0
-}
-
-const string = '{[]}})'
-
-// console.log(Valid(string));
-
-// sort a stack 
-function sortStack(stack) {
-    let tempStack = []
-
-    while (stack.length > 0) {
-        let temp = stack.pop();
-
-        while (tempStack.length > 0 && tempStack[tempStack.length - 1] < temp) {
-            stack.push(tempStack.pop())
-        }
-
-        tempStack.push(temp);
-    }
-
-    while (tempStack.length > 0) {
-        stack.push(tempStack.pop())
-    }
-}
-const stacktosort = [34, 3, 31, 98, 92, 23];
-//   sortStack(stacktosort);
-
-
-class Node {
-    constructor(value) {
-        this.value = value
-        this.next = null;
-    }
-}
-
 class StackLL {
 
     constructor() {
@@ -190,54 +57,112 @@ st.print()
 console.log(st.top);
 
 
-class stackUsingQueue{
-    constructor(){
-        this.queue = [];
+class Stack {
+    constructor() {
+        this.items = []
     }
 
-    push(x){
-        this.queue.push(x)
+    isEmpty() {
+        return this.items.length === 0
+    }
 
-        let size = this.queue.length ;
-        while (size > 1) {
-            this.queue.push(this.queue.shift())
-            size -- ;
+    push(value) {
+        this.items.push(value)
+        return;
+    }
+
+    pop() {
+        return this.items.pop();
+    }
+
+    peak() {
+        if (this.isEmpty()) return null
+        return this.items[this.items.length - 1]
+    }
+
+    removeMid() {
+        const tempStak = new Stack();
+
+        if (this.isEmpty()) return null
+        let mid = Math.floor(this.items.length / 2)
+
+        for (let i = 0; i < mid; i++) {
+            tempStak.push(this.pop())
         }
-    }
 
-    pop(){
-        if (this.queue.length === 0) {
-            return null
+        console.log(tempStak.items)
+        let removedItem = this.pop();
+
+        while (tempStak.items.length > 0) {
+            this.push(tempStak.pop())
+            // console.log(tempStak.pop())
         }
-
-        return this.queue.shift();
+        return removedItem;
     }
-    
-}
 
-function sortStack(stack) {
-    let tempStack = []
+    sortStack() {
+        let tempStack = new Stack()
 
-    while (stack.length) {
-        let curr = stack.pop()
+        while (!this.isEmpty()) {
 
-        if (curr % 2 !== 0) {
+            let curr = this.pop();
 
-            tempStack.push(curr)
-        } else {
-            while (tempStack.length && tempStack[tempStack.length - 1] < curr) {
-                stack.push(tempStack.pop())
+            while (!tempStack.isEmpty() && tempStack.peak() < curr) {
+                this.push(tempStack.pop())
             }
-            tempStack.push(curr)
+
+            tempStack.push(curr);
         }
+
+        while (!tempStack.isEmpty()) {
+            stack.push(tempStack.pop())
+        }
+
+        return stack.items
     }
 
-    while (tempStack.length > 0) {
-        stack.push(tempStack.pop())
-    }
-    return stack
 }
 
+const stack = new Stack();
 
-const stack = [4, 8, 3, 1, 2, 6]
-console.log(sortStack(stack));
+stack.push(5)
+stack.push(8)
+stack.push(2)
+stack.push(10)
+stack.push(15)
+// console.log(stack.peak())
+// console.log(stack.pop())
+// console.log(stack.removeMid())
+// console.log(stack.items)
+// console.log(stack.sortStack())
+
+
+function validParanthesis(str) {
+    const validPara = {
+        '{': '}',
+        '(': ')',
+        '[': ']'
+    }
+
+    const stack = []
+
+    for (let char of str) {
+        if (validPara[char]) {
+            stack.push(char)
+        } else {
+
+            if (stack.length === 0) return false;
+
+            let last = stack.pop();
+
+            if (validPara[last] !== char) {
+                return false;
+            }
+        }
+
+    }
+    return true;
+
+}
+
+console.log(validParanthesis("{[()]}"));
