@@ -32,6 +32,11 @@
 ]
 
 // return an an array of objects containing each students name and sum of their mark = done
+
+function stdWithMark() {
+
+}
+
 // get all the fibonacci numbers within the limit of 100 using reccursion. =  done
 
 function printNum() {
@@ -156,13 +161,10 @@ function findLongestStr(str) {
   let map = new Map();
   let string = '';
   for (let i = 0; i < str.length; i++) {
-   map.set( str[i] ,  (map.get(str[i]) || 0) + 1 )
+    map.set(str[i], (map.get(str[i]) || 0) + 1)
   }
 
-
-
   // console.log(map);
-  
 
   let strq = ''
   let count = 0;
@@ -175,10 +177,10 @@ function findLongestStr(str) {
 
   });
   let result = ''
-  while(count > 0){
+  while (count > 0) {
     console.log(count);
     result += strq
-    count --
+    count--
   }
 
   return result
@@ -192,7 +194,7 @@ function statCountDown(reminingTime) {
 
   // let reminingTime = sec;
 
- let countDown = setInterval(() => {
+  let countDown = setInterval(() => {
     console.log(reminingTime);
     reminingTime--;
 
@@ -517,7 +519,7 @@ console.log('/////////////////')
 
 function fetchData() {
 
-  return new Promise((res)=>{
+  return new Promise((res) => {
     setTimeout(() => {
       // console.log('fetchData data..');
       res('data from fetching = done');
@@ -527,42 +529,42 @@ function fetchData() {
 
 function proccessingData() {
 
-  return new Promise((res , rej)=>{
+  return new Promise((res, rej) => {
 
     setTimeout(() => {
       // console.log('prossessing data..');
       rej('errroe');
     }, 1000)
   });
-  }
+}
 
 
-  // fetchData().then((data)=>{
-  //   console.log(data);
-  //    proccessingData().then((data)=>{
-  //      console.log(data)
-  //    })
-  // })
+// fetchData().then((data)=>{
+//   console.log(data);
+//    proccessingData().then((data)=>{
+//      console.log(data)
+//    })
+// })
 
 // const data = Promise.any([proccessingData() , fetchData()]).then((data)=>{
 // console.log(data);
 
 // }).catch((e)=>{
 //   console.log(e);
-  
+
 // })
 
-function convetPrice(str){
-    let num  = '';
-    for(let i=0;i<str.length;i++){
-      if (str[i] === '.') break;
-       if(!isNaN(str[i])){
-        console.log(str[i]);
-        num += str[i]
-       }
+function convetPrice(str) {
+  let num = '';
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '.') break;
+    if (!isNaN(str[i])) {
+      console.log(str[i]);
+      num += str[i]
     }
+  }
 
-    return parseInt(num)
+  return parseInt(num)
 }
 
 console.log(convetPrice("₹480.00"))

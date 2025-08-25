@@ -12,7 +12,7 @@ const call = sample();
 
 // console.log(call);
 
-function* generate() {
+function* generate(){
     yield 1 + 1;
 }
 
@@ -41,7 +41,6 @@ const gen = generate()
 //     return Promise((resolve)=> setTimeout(()=> resolve('async2') ,1000))
 // }
 // async1.then((data)=>  )
-
 
 
 const array_3d = [
@@ -77,7 +76,6 @@ function countZeros(arr) {
 
     }
     return count;
-
 }
 
 console.log(countZeros(array_3d));

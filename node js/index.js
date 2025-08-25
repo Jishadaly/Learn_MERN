@@ -386,40 +386,70 @@
 // create an express route which takes two numbers as query parameters and a route middleware to double the values and write the sum of two in a file named sum.txt
 
 
+// const express = require('express')
+// const app = express()
+// const port = 3000;
+
+
+// const doubleNumbers = (req, res, next) => {
+//     console.log("middlware called.")
+//     console.log("actuall nums", req.query.nums)
+//     const nums = req.query.nums.split(',').map(item => 2 * Number(item))
+//     console.log(nums)
+//     req.doubledNumbers = nums
+//     next()
+// }
+
+
+// app.use(express.json())
+// app.get('/double', doubleNumbers, (req, res, next) => {
+
+
+//     fs.writeFile('text.txt', `the doubled Numbers are ${req.doubledNumbers}`, 'utf-8', (err) => {
+//         console.log(err)
+//     })
+
+//     fs.readFile('text.txt','utf-8' ,(err, data)  =>{
+//         console.log("data : " ,data)
+//     },'')
+
+//     res.status(200).send({
+//         message: `the doubled Numbers are.`,
+//         values: req.doubledNumbers
+//     })
+// })
+
+
+// app.listen(port, () => {
+//     console.log('node js server is running');
+// })
+
 const express = require('express')
-const app = express()
+const app = express();
 const port = 3000;
+const fs = require('fs')
 
 
-const doubleNumbers = (req, res, next) => {
-    console.log("middlware called.")
-    console.log("actuall nums", req.query.nums)
-    const nums = req.query.nums.split(',').map(item => 2 * Number(item))
+const doubleMiddleware = (req, res, next) => {  
+    const nums = req.query.nums.split(',').map((item) => 2 * Number(item))
     console.log(nums)
-    req.doubledNumbers = nums
+    req.doubledNums = nums;
     next()
 }
 
+app.get('/doubled', doubleMiddleware, (req, res, next) => {
+    const nums = req.doubledNums;
+    // console.log(nums)
 
-app.use(express.json())
-app.get('/double', doubleNumbers, (req, res, next) => {
-
-
-    fs.writeFile('text.txt', `the doubled Numbers are ${req.doubledNumbers}`, 'utf-8', (err) => {
+    fs.writeFile('doubled.txt', `doubled nums = ${nums}`, 'utf-8', (err) => {
         console.log(err)
+        next(err)
     })
 
-    fs.readFile('text.txt','utf-8' ,(err, data)  =>{
-        console.log("data : " ,data)
-    },'')
-
-    res.status(200).send({
-        message: `the doubled Numbers are.`,
-        values: req.doubledNumbers
-    })
+    res.status(200).json({ message: `doubled values : ${nums}` })
 })
 
 
 app.listen(port, () => {
-    console.log('node js server is running');
+    console.log(`server is running localHost:3000`)
 })

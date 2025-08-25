@@ -10,25 +10,28 @@ import Home from "./compontes/Home";
 import TodoApp from "./compontes/Todo";
 import Parant from "./compontes/Parant";
 import ParentComponent from "./compontes/RefAndForwardRef";
+import MouseTracker from "./compontes/MouseTracker";
 
 function App() {
   return (
     <div className="App">
-      <ErrorBoundary>
-        
-        <Routes>
-          {/* <Route path="/" element = {<Home/>}/> */}
-          {/* <Route path="/" element = {<Parant/>}/> */}
-          <Route path="/" element = {<ParentComponent/>}/>
-          <Route path="counter" element={<Counter />} />
-          <Route path="form" element={<FormComponents />} />
-          <Route path="toggle" element={<ToggleComponent />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="login" element={<Login />} />
-          <Route path="stopWatch" element={<StopWatch />} />
+      {/* <ErrorBoundary> */}
+      {/* <Routes> */}
+      {/* <Route path="/" element = {<Home/>}/> */}
+      {/* <Route path="/" element = {<Parant/>}/> */}
+      {/* <Route path="/" element = {<ParentComponent/>}/> */}
+      {/* <Route path="counter" element={<Counter />} /> */}
+      {/* <Route path="form" element={<FormComponents />} /> */}
+      {/* <Route path="toggle" element={<ToggleComponent />} /> */}
+      {/* <Route path="dashboard" element={<Dashboard />} /> */}
+      {/* <Route path="login" element={<Login />} /> */}
+      {/* <Route path="stopWatch" element={<StopWatch />} /> */}
+      {/* </Routes> */}
+      {/* </ErrorBoundary> */}
 
-        </Routes>
-      </ErrorBoundary>
+      {/* <MouseTracker>
+        {({ x, y }) => <p>Mouse position: {x}, {y}</p>}
+      </MouseTracker> */}
       {/* <TodoApp/> */}
     </div>
   );

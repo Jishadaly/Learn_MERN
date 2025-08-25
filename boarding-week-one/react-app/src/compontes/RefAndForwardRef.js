@@ -3,14 +3,14 @@ import { forwardRef, useRef } from "react"
 export default function ParentComponent() {
 
     const ref = useRef();
-    const focusChild = ()=>{
+    const focusChild = () => {
         ref.current.focus();
     }
 
     return (
 
         <div>
-            <CustumeInput ref={ref}/>
+            <CustumeInput ref={ref} />
             <button onClick={focusChild}> click to focus </button>
         </div>
 
@@ -18,9 +18,9 @@ export default function ParentComponent() {
 }
 
 const CustumeInput = forwardRef((prop, ref) => {
-   return (
-    <div>
-         <input type=" text" ref={ref} placeholder="write somthing"/>
-    </div>
-   )
+    return (
+        <div>
+            <input type=" text" ref={ref} placeholder="write somthing" />
+        </div>
+    )
 })

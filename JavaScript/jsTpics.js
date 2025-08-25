@@ -10,7 +10,7 @@
 //   console.log(res);
 // }).catch((Error)=>{
 //   console.log(Error);
-// })
+// });
 
 // function * simpleGeneretor(){
 //   yield 1;
@@ -26,7 +26,7 @@
 // function multiply(a , b , callback){
 //     const result  = a * b
 
-//     callback(result)
+//     callback(result);
 // }
 
 // function handleResult (result){
@@ -57,7 +57,7 @@
 //     console.log(error);
 //   }
 // }
-#
+
 // function getDataFromServer(){  
 //   setTimeout(()=>{
 //     console.log("fetch data");
@@ -149,8 +149,10 @@
 //   let result  = a.concat(b)
 
 //   return result;
-// } const obj ={
-//   hello : "hey"
+// }
+// 
+//  const obj ={
+//   hello : "hey";
 // }
 
 // let a = [1,2,34,5,6] ; b = [4,5,2,5,2,4] ; c = [23,43,2,5]
@@ -170,13 +172,14 @@
 function reverseWords(str) {
   // Base case: if the string has no space or is empty, return it
   const lastIndex = str.lastIndexOf(' ');
-  console.log('//',lastIndex);
+  console.log('//', lastIndex);
   if (lastIndex === -1) {
-      return str;
+    return str;
   }
   // Recursive case: reverse the substring after the last space and concatenate it
   return reverseWords(str.substring(lastIndex + 1)) + ' ' + str.substring(0, lastIndex);
 }
+
 
 // Example usage:
 const originalString = "jishad ali";
@@ -308,40 +311,7 @@ console.log("Reversed string:", reversedString);
 // console.log(compare(object1,object2))
 
 
-
-// function compare(obj1 , obj2){
-//    key1 = Object.keys(obj1)
-//    key2 = Object.keys(obj2)
-
-//    if (key1.length !== key2.length) {
-//       return false
-//    }
-
-//    for( key in obj1 ){
-//        if (obj2[key] !== obj1[key]) {
-//         return false
-//        }
-//    }
-//    return true
-
-// }
-// console.log(compare(object1, object2));
-
-
 // let arr2=[1,2,3,1,2,3,4,1]
-
-// for(let i=0 ;i<arr2.length-1 ; i++){
-//    for(let j=i+1; j<arr2.length ;j++){
-//     if (arr2[i] === arr2[j]) {
-//       arr2.splice(j,1)
-//       arr2.splice(i,1)
-//       i--
-//       j--
-//     }
-//    }
-// }
-
-// console.log(arr2);
 
 // let newMap = new Map()
 
@@ -361,7 +331,7 @@ console.log("Reversed string:", reversedString);
 // })
 
 
-// // remove elements which start lettter from vowels 
+// // remove elements which start letter from vowels 
 // const arar =['a','e','i']
 // const arrrar = ['abhi', 'jishad', "ashna" , 'irfan']
 
@@ -405,7 +375,8 @@ console.log("Reversed string:", reversedString);
 // console.log(extrectNum(num));
 
 
-// //factory function
+//factory function
+
 // function person(name , age ){
 //    return {
 //      name:name,
@@ -692,7 +663,7 @@ function findNonrepeating(arr) {
 }
 let numbers = [-1, 2, 5, 6, 2, 9, -1, 6, 5, -1, 3]
 
-console.log('haha',findNonrepeating(numbers)); 
+console.log('haha', findNonrepeating(numbers));
 
 function combination(arr) {
   let result = []
@@ -849,32 +820,6 @@ function reverseStringRec(str) {
 
 // console.log(reverseStringRec('jishad ali'));
 
-
-function binarySearch(arr, value) {
-
-  let left = 0;
-  let right = arr.length - 1;
-
-  while (left <= right) {
-    let middle = Math.floor((left + right) / 2)
-
-    if (arr[middle] === value) {
-      return middle
-    }
-
-    if (value < arr[middle]) {
-      right = middle - 1
-    } else {
-      left = middle + 1
-    }
-  }
-
-  return -1
-}
-
-const arr1 = [1, 2, 3, 4, 5, 6, 7, 8]
-console.log(binarySearch(arr1, 4));
-
 //print even numbers with generate function
 
 function* sampleGen(num) {
@@ -897,6 +842,5 @@ function carrying(num1) {
   }
 }
 
-const sum = carrying(1)(2)(3)
+const sum = currying(1)(2)(3)
 // const  deepCopy  = JSON.parse(JSON.stringify(array))
-
