@@ -136,12 +136,38 @@ class Trie {
     return true
   }
 
+  delete(word) {
+    if (!this.contains(word)) {
+      console.log('please add existing word')
+      return
+    }
+
+    this.deleteHelper(this.root, word, 0)
+  }
+
+  deleteHelper(node, word, index) {
+    if (word.length === index) {
+      node.isWordEnd = false;
+      return
+    }
+
+    let charToDelete = word[index]
+    let nextNode = node.children[charToDelete]
+    this.deleteHelper(nextNode, word, index + 1)
+
+    if (Object.values(nextNode) === 0 && !nextNode.isWordEnd) {
+       delete node.children[charToDelete];
+    }
+  }
+
 }
 
 const trie = new Trie()
 
 trie.insert('hello world')
+trie.insert('hello gys')
 console.log(trie.contains('hello world'))
 console.log(trie.startWith('hello'))
-
-// console.log(trie.root.children)
+trie.delete('hello gys')
+console.log(trie.contains('hello gys'))
+console.log(trie.startWith('hello'))
