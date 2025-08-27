@@ -1,117 +1,80 @@
-// class Graph {
-//   constructor(){
-//     this.adjecentList = {}
-//   }
-
-//   addVertex(vertex){
-//      if (!this.adjecentList[vertex]) {
-//        this.adjecentList[vertex] = new Set()
-//      } 
-//   }
-  
-//   addEdges(vertex1 , vertex2){
-//     if (!this.adjecentList[vertex1]) {
-//        this.addVertex(vertex1)
-//     }
-//     if (!this.adjecentList[vertex2]) {
-//        this.addVertex(vertex2)
-//     }
-
-//     this.adjecentList[vertex1].add(vertex2)
-//     this.adjecentList[vertex2].add(vertex1)
-
-//   }
-
-//   deleteEdges(vertex1 , vertex2){
-//      this.adjecentList[vertex1].delete(vertex2)
-//      this.adjecentList[vertex2].delete(vertex1)
-    
-//   }
-
-//   deletevertex(vertex){
-//     if (!this.adjecentList[vertex]) {
-//       return null
-//     }
-//     for(let adjecentVertex in this.adjecentList){
-//       this.deleteEdges(vertex ,adjecentVertex )
-//     }
-//     delete this.adjecentList[vertex]
-//   }
-  
-// dfs(startIndex , visited = {}){
-//   if (!this.adjecentList[startIndex]) {
-//     return 
-//   }
-//   console.log(startIndex);
-//   visited[startIndex] = true
-//   for(let neighbor of this.adjecentList[startIndex]){
-//      if (!visited[neighbor]) {
-//        this.dfs(neighbor , visited)
-//      }
-//   }
-// }
-
-// bfs(startIndex){
-//   const  queue = [startIndex]
-//   const visited = {[startIndex] : true}
-
-//   while(queue.length > 0 ){
-//     const currentVertex = queue.shift()
-//     console.log(currentVertex);
-
-//     for(const neighbor of this.adjecentList[currentVertex]){
-//       if (!visited[neighbor]) {
-//         visited[neighbor] = true
-//         queue.shift(neighbor)
-//         }
-//       }
-//     }
-//   }
-// }
-
-// const graph = new Graph()
-// graph.addEdges("A" , "B")
-// graph.addEdges("A" , "B")
-// graph.addEdges("A" , "B")
-
 class Graph {
-  constructor(){
-     this.adjecentList = {}
-  }
-
-  addVertex(vertex){
-    if (!this.adjecentList[vertex]) {
-      this.adjecentList[vertex] = new Set();
-    }
-  }
-
-  addEdge(vertex1 , vertex2){
-    if (!this.adjecentList[vertex1]) {
-       this.addVertex(vertex1)
-    }
-    
-    if (!this.adjecentList[vertex2]) {
-      this.addVertex(vertex2)
+   constructor() {
+      this.adjecentList = {}
    }
 
-   this.adjecentList[vertex1].add(vertex2);
-   this.adjecentList[vertex2].add(vertex1)
+   addVertex(vertex) {
+      if (!this.adjecentList[vertex]) {
+         this.adjecentList[vertex] = new Set()
+      }
+   }
 
-  }
-  deleteEdge(vertex1 , vertex2){
-     this.adjecentList[vertex1].delete(vertex2)
-     this.adjecentList[vertex2].delete(vertex1)
-  }
+   addEdges(vertex1, vertex2) {
+      if (!this.adjecentList[vertex1]) {
+         this.addVertex(vertex1)
+      }
+      if (!this.adjecentList[vertex2]) {
+         this.addVertex(vertex2)
+      }
+      this.adjecentList[vertex1].add(vertex2)
+      this.adjecentList[vertex2].add(vertex1)
+   }
 
-  deleteVertex(vertex){
-    if (!this.adjecentList[vertex]) {
-       return false
-    }
+   removeEdges() {
+      this.adjecentList[vertex1].delete(vertex2)
+      this.adjecentList[vertex2].delete(vertex1)
+   }
 
-    for(let adjecentElemnt in this.adjecentList){
-       this.deleteEdge(vertex , adjecentElemnt)
-    }
+   deleteVertex(vertex) {
+      if (!this.adjecentList[vertex]) {
+         return null
+      }
 
-    delete this.adjecentList[vertex];
-  }
+      for (let adjucentVertex in this.adjecentList[vertex]) {
+         this.removeEdges(adjucentVertex, vertex)
+      }
+      delete this.adjecentList[vertex]
+   }
+
+   dfs(startVertex, visited = {}) {
+      if (!this.adjecentList[startVertex]) {
+         return
+      }
+
+      console.log(startVertex)
+      visited[startVertex] = true
+
+      for (let neighbor of this.adjecentList[startVertex]) {
+
+         if (!visited[neighbor]) {
+            this.dfs(neighbor, visited)
+         }
+      }
+   }
+
+   bfs(startVertex) {
+      const queue = [startVertex]
+      const visited = { [startVertex]: true }
+
+
+      while (queue.length) {
+         let curr = queue.shift()
+         console.log(curr)
+
+         for (let neighbor of this.adjecentList[curr]) {
+            if (!visited[neighbor]) {
+               visited[neighbor] = true;
+               queue.push(neighbor)
+            }
+         }
+      }
+   }
+
 }
+
+const graph = new Graph()
+graph.addEdges("A", "B")
+graph.addEdges("A", "B")
+graph.addEdges("A", "B")
+graph.dfs('B')
+graph.bfs('A')
